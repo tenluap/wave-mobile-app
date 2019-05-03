@@ -1,0 +1,31 @@
+<Page loaded="pageLoaded" class="page" actionBarHidden="true">
+	<AbsoluteLayout width="100%" height="100%">
+		<image src="~/img/bg.jpg" stretch="fill" tintColor="rgba(255,255,255,0.3)" />
+		<FlexboxLayout flexDirection="column" padding="20,40" width="100%" height="100%">
+
+			<StackLayout flexGrow="1">
+				<label text="login" class="strong h1" color="black"  />
+				<StackLayout backgroundColor="#27598C" padding="20" width="100%" borderRadius="5" color="white">
+					<label text="Username" fontSize="12" />
+					<text-field hint="Username" backgroundColor="white" color="black" />
+					<label text="Password" fontSize="12" class="m-t-10" />
+					<text-field hint="Password" secure="true" backgroundColor="white" color="black" />
+					<label text="Forgotten Password ?" textAlignment="right" class="m-t-20" />
+					<button type="submit" tap="{{view}}" text="LOGIN" color="white" backgroundColor="#37ABE2" class="m-t-10"></button>
+				</StackLayout>
+			</StackLayout>
+
+			<StackLayout flexGrow="1">
+				<label text="OR" class="" textAlignment="center" />
+				<button text="Facebook" color="white" backgroundColor="#3B5998"/>
+				<button text="SIGN UP" color="white" backgroundColor="#f2a950" tap="{{register}}"/>
+			</StackLayout>
+
+			<FlexboxLayout alignSelf="center" color="#27598C" tap="{{register}}" >
+				<label text="Register, " />
+				<label text="New user ?" class="font-weight-bold" />
+			</FlexboxLayout>
+
+		</FlexboxLayout>
+	</AbsoluteLayout>
+</Page>

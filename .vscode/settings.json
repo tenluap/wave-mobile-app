@@ -1,0 +1,13 @@
+{
+    "xml.fileAssociations": [
+        {
+            "systemId": "d:\\USERS\\Projects\\aun\\mobile_apps\\wave\\schema\\tns.xsd",
+            "pattern": "**/**/*.xml"
+        }
+    ],
+    "files.exclude": {
+        "schema": true
+    },
+    "editor.snippetSuggestions": "none",
+    "NE.enable.snippets": true
+}
