@@ -1,9 +1,9 @@
 import { EventData } from 'tns-core-modules/data/observable';
-import { StackLayout } from 'tns-core-modules/ui/layouts/stack-layout';
 import { TabviewViewModel } from './tabview-view-model';
+import { Page } from 'tns-core-modules/ui/page/page';
 
 export function pageLoaded(args: EventData) {
-     let page = <StackLayout>args.object;
-    page.bindingContext = new TabviewViewModel();
+     let page = <Page>args.object;
+    page.bindingContext = new TabviewViewModel(page);
 }
 

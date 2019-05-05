@@ -1,0 +1,28 @@
+<Page loaded="pageLoaded" class="page" actionBarHidden="true">
+
+	<ActionBar title="blog-view" class="action-bar">
+	</ActionBar>
+
+	<ScrollView>
+		<StackLayout >
+		
+				<image src="~/img/land2.jpg" stretch="aspectFill" height="170"  width="100%"  />
+
+				<StackLayout padding="20">
+				<Label text="Content title goes here" textTransform="uppercase" class="strong " marginBottom="10" fontSize="28" color="#3B5998" />
+
+				<label text="{{lorem}}" textWrap="true" color="black" class="body"/>
+
+				</StackLayout>
+
+				<StackLayout backgroundColor="#59023B" padding="10 20">
+					<StackLayout orientation="horizontal" marginBottom="10">
+						<button text="Bible" color="white" backgroundColor="#8C0444" width="50%"/>
+						<button text="Quran" color="white" backgroundColor="#8C0444" width="50%"/>
+					</StackLayout>
+
+					<Label text="{{lorem2}}" textWrap="true" color="white" class="body"/>
+				</StackLayout>
+		</StackLayout>
+	</ScrollView>
+</Page>

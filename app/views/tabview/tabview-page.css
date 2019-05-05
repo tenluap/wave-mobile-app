@@ -2,3 +2,19 @@
     font-size: 12;
     font-weight: 200;
 }
+
+
+.navbar label{
+    font-size: 20
+}
+
+.actionbar{
+    background-color: #8C0444;
+    padding: 16
+}
+
+.actionbar button{
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: transparent !important;
+}

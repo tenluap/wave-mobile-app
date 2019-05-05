@@ -1,16 +1,35 @@
-<Page loaded="pageLoaded" class="page">
-
-	<ActionBar title="blog" class="action-bar">
-	</ActionBar>
-
+<Page loaded="pageLoaded" class="page" actionBarHidden="true">
 	<ScrollView>
-		<StackLayout class="home-panel">
-			<!--Add your page content here-->
-			<Label textWrap="true" text="Play with NativeScript!" class="h2 description-label" />
-			<Label textWrap="true" text="Write code in the editor or drag and drop components to build a NativeScript mobile application."
-			 class="h2 description-label" />
-			<Label textWrap="true" text="Scan the QR code with your mobile device and watch the changes sync live while you play with the code."
-			 class="h2 description-label" />
+		<StackLayout>
+			<Label text="Blog" class="strong m-l-20 h1 p-y-10" color="#3B5998" />
+			<!-- <ListView items="">
+				<ListView.itemTemplate>
+					<AbsoluteLayout height="170" width="100%">
+						<image src="~/img/land2.jpg" stretch="aspectFit" width="100%" tintColor="rgba(0,0,0,0.4)" />
+						<label text="Content Title goes here " textWrap="true" width="100%" color="white" fontSize="16" style="font-weight:400" padding="0 20" top="120" />
+					</AbsoluteLayout>
+				</ListView.itemTemplate>
+			</ListView> -->
+			<AbsoluteLayout height="170" width="100%" id='test' tap="{{goto}}" >
+				<image src="~/img/land2.jpg" stretch="aspectFit" width="100%" tintColor="rgba(0,0,0,0.4)" />
+				<label text="Content Title goes here 2 " textWrap="true" width="100%" color="white" fontSize="16" style="font-weight:400" padding="0 20" top="120" />
+			</AbsoluteLayout>
+			<AbsoluteLayout height="170" width="100%" id='test' tap="{{goto}}" >
+				<image src="~/img/land.jpg" stretch="aspectFit" width="100%" tintColor="rgba(0,0,0,0.4)" />
+				<label text="Content Title goes here " textWrap="true" width="100%" color="white" fontSize="16" style="font-weight:400" padding="0 20" top="120" />
+			</AbsoluteLayout>
+			<AbsoluteLayout height="170" width="100%" id='test' tap="{{goto}}" >
+				<image src="~/img/land2.jpg" stretch="aspectFit" width="100%" tintColor="rgba(0,0,0,0.4)" />
+				<label text="Content Title goes here " textWrap="true" width="100%" color="white" fontSize="16" style="font-weight:400" padding="0 20" top="120" />
+			</AbsoluteLayout>
+			<AbsoluteLayout height="170" width="100%" id='test' tap="{{goto}}" >
+				<image src="~/img/land2.jpg" stretch="aspectFit" width="100%" tintColor="rgba(0,0,0,0.4)" />
+				<label text="Content Title goes here " textWrap="true" width="100%" color="white" fontSize="16" style="font-weight:400" padding="0 20" top="120" />
+			</AbsoluteLayout>
+		
+			
+
+			<button text="load more" class="btn" width="200" />
 		</StackLayout>
 	</ScrollView>
 </Page>
