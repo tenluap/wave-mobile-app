@@ -1,6 +1,6 @@
 {
   "nativescript": {
-    "id": "org.nativescript.wave",
+    "id": "com.bracketcore.wave",
     "tns-android": {
       "version": "5.3.1"
     },
@@ -13,7 +13,6 @@
   "license": "SEE LICENSE IN <your-license-filename>",
   "repository": "<fill-your-repository-here>",
   "dependencies": {
-    "@teammaestro/nativescript-svg": "^1.0.1",
     "nativescript-theme-core": "~1.0.4",
     "tns-core-modules": "~5.3.0"
   },

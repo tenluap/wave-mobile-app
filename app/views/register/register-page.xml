@@ -7,21 +7,21 @@
 					<label text="register" class="strong h1" color="black" />
 					<StackLayout backgroundColor="#27598C" padding="20" width="100%" borderRadius="5" color="white">
 						<label text="Last Name" fontSize="12" />
-						<text-field hint="Last Name" backgroundColor="white" color="black" borderRadius="4" />
+						<text-field hint="Last Name"  />
 						<label text="First Name" fontSize="12" />
-						<text-field hint="First Name" backgroundColor="white" color="black" borderRadius="4" />
+						<text-field hint="First Name"  />
 						<label text="Username" fontSize="12" />
-						<text-field hint="Username" backgroundColor="white" color="black" borderRadius="4" />
+						<text-field hint="Username"  />
 						<label text="Password" fontSize="12" class="m-t-10" />
-						<text-field hint="Password" secure="true" backgroundColor="white" color="black" borderRadius="4" />
+						<text-field hint="Password" secure="true"  />
 						<label text="Confirm Password" fontSize="12" class="m-t-10" />
-						<text-field hint="Confirm Password" secure="true" backgroundColor="white" color="black" borderRadius="4" />
+						<text-field hint="Confirm Password" secure="true"  />
 						<label text="Email" fontSize="12" class="m-t-10" />
-						<text-field hint="Email" keyboardType="email" backgroundColor="white" color="black" borderRadius="4" />
+						<text-field hint="Email" keyboardType="email"  />
 						<label text="Phone Number" fontSize="12" class="m-t-10" />
-						<text-field hint="Phone Number" keyboardType="number" backgroundColor="white" color="black" borderRadius="4" />
+						<text-field hint="Phone Number" keyboardType="number"  />
 						<button type="submit" text="SIGNUP" color="white" backgroundColor="#37ABE2" class="m-t-10"></button>
-						<button type="submit" text="Cancel" color="white" backgroundColor="Red" tap="{{login}}"></button>
+						<button type="submit" text="Cancel" color="white" backgroundColor="#D9115A" tap="{{login}}"></button>
 					</StackLayout>
 				</StackLayout>
 			</StackLayout>

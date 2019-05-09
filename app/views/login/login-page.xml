@@ -7,9 +7,9 @@
 				<label text="login" class="strong h1" color="black"  />
 				<StackLayout backgroundColor="#27598C" padding="20" width="100%" borderRadius="5" color="white">
 					<label text="Username" fontSize="12" />
-					<text-field hint="Username" backgroundColor="white" color="black" />
+					<TextField hint="Username"  />
 					<label text="Password" fontSize="12" class="m-t-10" />
-					<text-field hint="Password" secure="true" backgroundColor="white" color="black" />
+					<text-field hint="Password" secure="true" />
 					<label text="Forgotten Password ?" textAlignment="right" class="m-t-20" />
 					<button type="submit" tap="{{view}}" text="LOGIN" color="white" backgroundColor="#37ABE2" class="m-t-10"></button>
 				</StackLayout>

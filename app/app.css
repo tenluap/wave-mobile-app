@@ -33,12 +33,22 @@ components that have the btn class name.
     
 }
 
-.action-bar{
-    background-color: #8c0444;
-    color: white
+
+.actionbar{
+    background-color: #8C0444;
+    padding: 16
 }
 
 .mat{
     font-family: "MaterialIcons-Regular";
     
 }
+
+textField{
+    color: black;
+    font-size: 16;
+    padding-left: 10;
+    background-color: white;
+    border-radius: 4
+}
+

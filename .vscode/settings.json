@@ -1,7 +1,7 @@
 {
     "xml.fileAssociations": [
         {
-            "systemId": "d:\\USERS\\Projects\\aun\\mobile_apps\\wave\\schema\\tns.xsd",
+            "systemId": "d:\\ehigiepaul\\Documents\\Projects\\wave-mobile-app\\schema\\tns.xsd",
             "pattern": "**/**/*.xml"
         }
     ],
@@ -9,5 +9,5 @@
         "schema": true
     },
     "editor.snippetSuggestions": "none",
-    "NE.enable.snippets": true
+    "NE.enable.snippets": false
 }
