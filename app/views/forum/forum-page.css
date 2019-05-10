@@ -1,6 +1,19 @@
-.btn {
-    font-size: 18;
+button{
+    text-transform: none;
+    font-weight: 600;
 }
+
+.opts label{
+    border-radius: 30;
+    border-width: 2;
+    border-color:#F2A950;
+    padding: 2,20;
+    margin-right: 10;
+    color: black;
+    font-weight: 500
+}
+
+/* borderRadius="30" borderWidth="2" borderColor="#F2A950" padding="2,20" marginRight="10" */
 
 @import '~nativescript-theme-core/css/core.light.css';
 
@@ -12,4 +25,8 @@
 
 .description-label{
     margin-bottom: 15;
+}
+
+.list label{
+color:white
 }

@@ -1,0 +1,45 @@
+<Page loaded="pageLoaded" class="page" actionBarHidden="true">
+	<GridLayout rows="auto,*,auto" columns="*">
+		<GridLayout rows="auto" columns="50 * auto auto" horizontalAlignment="left" color="white" height="56" width="100%" class="actionbar">
+			<label text="arrow_back" fontSize="24" class="mat" textWrap="true" tap="{{goBack}}" col="0" />
+			<Label text="Forum" fontSize="24" class="strong" col="1" />
+			<Label text="share" fontSize="24" class="mat" textWrap="true" marginRight="16" col="2" tap="{{shareBtn}}" />
+			<Label text="notifications" fontSize="24" class="mat" textWrap="true" col="3" />
+		</GridLayout>
+		<ScrollView width="100%" height="100%" row="1">
+			<StackLayout>
+				<GridLayout rows="auto,auto, auto, auto" columns="*" padding="10 20">
+					<GridLayout row="0" columns="*, auto">
+
+					<Label text="Content title goes here sadkd kasdljlkanslknljalskfloasdflkmlkdsjaflk llsmdlfmklsad flmasldflsdmfdslkmfll " textWrap="true" col="0" textTransform="uppercase" class="strong h2 " marginBottom="10" color="#3B5998" />
+					<label text="star" textWrap="true" col="1" fontSize="34" color="black" class="body mat" />
+					</GridLayout>
+					<!-- row 2 -->
+					<label text="Created on 23rd May 2019" style="font-weight:400" fontSize="12" color="#2F84C4" row="1" />
+					<!-- row 3 content area -->
+					<label text="{{lorem}}"  fontSize="14" color="black" textWrap="true" row="2" marginTop="10"/>
+					<!-- row 4 content area -->
+					<StackLayout row="3">
+					<label text="REPLIES" class="strong" fontSize="20" color="#D9115A" textWrap="true" row="2" margin="5 0"/>
+
+					<!-- listing starts here -->
+					<GridLayout columns="auto, *">
+						<image src="~/img/land.jpg" borderRadius="40" marginRight="10" width="38" height="38" stretch="fill" col="0" verticalAlignment="top"/>
+						<StackLayout col="1">
+							<label text="Username" color="Black" fontSize="14" style="font-weight:500"/>
+							<label text="Created on 13th May 2019" fontSize="12" color="#D9115A" style="font-style:italic" />
+							<label text="{{lorem2}}" textWrap="true" color="black" fontSize="14"/>
+						</StackLayout>
+					</GridLayout>
+
+					</StackLayout>
+
+				</GridLayout>
+			</StackLayout>
+		</ScrollView>
+		<GridLayout columns="auto,*" row="2" padding="10" backgroundColor="#3B5998" >
+			<label text="menu" class="mat"  fontSize="16" color="black" borderRadius="30" style=" font-weight: 600;" backgroundColor="white" padding="8" textAlignment="center"  marginRight="10"/>
+			<TextField hint="Reply" text="{{reply}}" fontSize="12" borderRadius="30"  height="32" padding="0 10" col="1" tap="{{replyMessage}}"/>
+		</GridLayout>
+	</GridLayout>
+</Page>
