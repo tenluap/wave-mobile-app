@@ -4,7 +4,7 @@
 			<!-- section 01 -->
 			<GridLayout rows="auto" columns="*,*" padding="0 10">
 				<Label text="Forum" class="strong h1 p-y-10" color="#3B5998" row="0" col="0" />
-				<Button text="add ADD" class="mat " horizontalAlignment="right" height="46" width="auto" backgroundColor="#D9115A" color="white" row="0" col="1" />
+				<Button text="add ADD" class="mat " tap="{{create}}" horizontalAlignment="right" height="46" width="auto" backgroundColor="#D9115A" color="white" row="0" col="1" />
 			</GridLayout>
 			<!-- section 02 -->
 			<ScrollView orientation="horizontal" scrollBarIndicatorVisible="false">
@@ -19,7 +19,7 @@
 			<!-- section 03 -->
 			<StackLayout class="list">
 				<!-- card -->
-				<StackLayout backgroundColor="#3B5998" tap="{{goTo}}">
+				<StackLayout backgroundColor="#3B5998" tap="{{goto}}">
 					<GridLayout rows="auto" columns="auto,*,auto" padding="5 0">
 						<image src="~/img/land.jpg" borderColor="white" borderWidth="2"  width="50" height="50" borderRadius="300" stretch="fill" row="0" col="0" colSpan="1" margin="0 10" />
 						<StackLayout col="1">

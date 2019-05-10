@@ -3,26 +3,29 @@
 	<StackLayout>
 		<Label text="Comic" class="strong m-l-20 h1 p-y-10" color="#3B5998" />
 
-		<GridLayout columns="*,*" rows="290,290" padding="0,20" >
-			<StackLayout row="0" col="0" horizontalAlignment="left" >
-				<image src="~/img/land.jpg" width="180" height="250" stretch="aspectFill" borderRadius="4"/>
+	
+		<FlexboxLayout padding="0 20" flexWrap="wrap" justifyContent="space-between">
+			<StackLayout row="0" col="0" horizontalAlignment="left" marginBottom="10" tap="{{goto}}" >
+				<image src="~/img/land.jpg" width="{{width}}" height="250" stretch="aspectFill" borderRadius="4"/>
 				<label text="Episode 01" color="black" class="m-t-5" />
 			</StackLayout>
-			<StackLayout row="0" col="1" horizontalAlignment="right"  >
-				<image src="~/img/land2.jpg" width="180" height="250" stretch="aspectFill" borderRadius="4"/>
+			<StackLayout row="0" col="0" horizontalAlignment="left" marginBottom="10" tap="{{goto}}" >
+				<image src="~/img/land.jpg" width="{{width}}" height="250" stretch="aspectFill" borderRadius="4"/>
 				<label text="Episode 01" color="black" class="m-t-5" />
 			</StackLayout>
-			<StackLayout row="1" col="0" horizontalAlignment="left" >
-				<image src="~/img/land2.jpg" width="180" height="250" stretch="aspectFill" borderRadius="4"/>
+			<StackLayout row="0" col="0" horizontalAlignment="left" marginBottom="10" tap="{{goto}}" >
+				<image src="~/img/land.jpg" width="{{width}}" height="250" stretch="aspectFill" borderRadius="4"/>
 				<label text="Episode 01" color="black" class="m-t-5" />
 			</StackLayout>
-			<StackLayout row="1" col="1" horizontalAlignment="right" >
-				<image src="~/img/land2.jpg" width="180" height="250" stretch="aspectFill" borderRadius="4"/>
+			<StackLayout row="0" col="0" horizontalAlignment="left" marginBottom="10" tap="{{goto}}" >
+				<image src="~/img/land.jpg" width="{{width}}" height="250" stretch="aspectFill" borderRadius="4"/>
 				<label text="Episode 01" color="black" class="m-t-5" />
 			</StackLayout>
-
-		</GridLayout>
-
+			<StackLayout row="0" col="0" horizontalAlignment="left" marginBottom="10" tap="{{goto}}" >
+				<image src="~/img/land.jpg" width="{{width}}" height="250" stretch="aspectFill" borderRadius="4"/>
+				<label text="Episode 01" color="black" class="m-t-5" />
+			</StackLayout>
+		</FlexboxLayout>
 	</StackLayout>
 </ScrollView>	
 </page>

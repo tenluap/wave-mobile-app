@@ -1,5 +1,5 @@
 import { Observable, EventData } from 'tns-core-modules/data/observable';
-import { Page, Color } from 'tns-core-modules/ui/page/page';
+import { Page, Color, NavigatedData } from 'tns-core-modules/ui/page/page';
 import {TextView} from 'tns-core-modules/ui/text-view/text-view'
 import { device, screen } from 'tns-core-modules/platform/platform';
 import { StackLayout } from 'tns-core-modules/ui/layouts/stack-layout/stack-layout';
@@ -19,6 +19,7 @@ export class ForumViewViewModel extends Observable {
 
     constructor() {
         super();
+        
     }
 
     replyMessage(ev:EventData){

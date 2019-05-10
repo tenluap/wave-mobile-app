@@ -9,13 +9,17 @@ export class BlogViewModel extends Observable {
 
     goto(ev: EventData) {
         let selected = <Page>ev.object
-        topmost().navigate({
+        var page = selected.page.frame.parent.parent.page.frame
+      
+
+        page.navigate({
             moduleName: "views/blog/blog-view-page",
             transition: {
                 name: "slideLeft",
                 duration: 300
             }
         })
+       
 
         // console.log(selected)
     }
