@@ -1,4 +1,4 @@
-<Page loaded="pageLoaded" class="page" actionBarHidden="true">
+<Page loaded="pageLoaded" class="page" actionBarHidden="true" >
 	<AbsoluteLayout width="100%" height="100%">
 		<image src="~/img/bg.jpg" stretch="fill" tintColor="rgba(255,255,255,0.3)" />
 		<FlexboxLayout flexDirection="column" padding="20,40" width="100%" height="100%">
@@ -17,7 +17,7 @@
 
 			<StackLayout flexGrow="1">
 				<label text="OR" class="" textAlignment="center" />
-				<button text="Facebook" color="white" backgroundColor="#3B5998"/>
+				<button text="Login with Facebook" color="white" backgroundColor="#3B5998" tap="{{loginFB}}"/>
 				<button text="SIGN UP" color="white" backgroundColor="#f2a950" tap="{{register}}"/>
 			</StackLayout>
 

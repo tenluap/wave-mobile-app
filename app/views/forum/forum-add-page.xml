@@ -4,7 +4,7 @@
 			<label text="arrow_back" fontSize="24" class="mat" textWrap="true" tap="{{goBack}}" col="0" />
 			<Label text="Create Topic" fontSize="24" class="strong" col="1" />
 			<!-- <Label text="search" fontSize="24" class="mat" textWrap="true" marginRight="16" col="2" tap="{{shareBtn}}" /> -->
-			<Label text="SUBMIT" fontSize="16" class="" textWrap="true" col="3" tap="{{submit}}" />
+			<Label text="SUBMIT" fontSize="16" style="font-weight:700" textWrap="true" col="3" tap="{{submit}}" />
 		</GridLayout>
 		<ScrollView row="1">
 			<StackLayout padding="20">

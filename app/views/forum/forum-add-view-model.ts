@@ -18,5 +18,9 @@ export class ForumAddViewModel extends Observable {
             }
         })
     }
+
+   goBack(){
+       topmost().goBack()
+   }
 }
     
