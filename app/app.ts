@@ -5,8 +5,15 @@ purpose of the file is to pass control to the app’s first module.
 */
 
 import * as application from "tns-core-modules/application";
+import { init } from "nativescript-facebook";
+ 
+application.on(application.launchEvent, function (args) {
+    init("{923601681072774}");
+});
+ 
+application.start({ moduleName: "views/login/login-page" });
 
-application.run({ moduleName: "app-root" });
+// application.run({ moduleName: "app-root" });
 
 /*
 Do not place any code after the application has been started as it will not
