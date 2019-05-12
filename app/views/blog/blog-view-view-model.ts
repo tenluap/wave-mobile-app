@@ -1,9 +1,8 @@
 import { Observable, EventData } from 'tns-core-modules/data/observable';
 import { Page, View } from 'tns-core-modules/ui/page/page';
 import { StackLayout } from 'tns-core-modules/ui/layouts/stack-layout/stack-layout';
-import {Button} from 'tns-core-modules/ui/button/button'
 import { topmost } from 'tns-core-modules/ui/frame/frame';
-
+import * as SocialShare from "nativescript-social-share"
 export class BlogViewViewModel extends Observable {
     constructor() {
         super();
@@ -20,9 +19,10 @@ Morbi pretium, ex auctor consequat efficitur, leo magna imperdiet leo, in tristi
     shareBtn(ev:EventData){
         let shr = <Page>ev.object
        
-        shr.showModal("/shared/share/share-page","", ()=>{
+        SocialShare.shareUrl("https://google.com","Google")
+        // shr.showModal("/shared/share/share-page","", ()=>{
 
-        })
+        // })
 
     }
 

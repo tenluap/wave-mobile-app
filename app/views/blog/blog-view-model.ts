@@ -15,8 +15,8 @@ export class BlogViewModel extends Observable {
         page.navigate({
             moduleName: "views/blog/blog-view-page",
             transition: {
-                name: "slideLeft",
-                duration: 300
+                name: "slide",
+                // duration: 300
             }
         })
        
