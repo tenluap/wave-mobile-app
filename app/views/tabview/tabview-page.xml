@@ -1,47 +1,90 @@
-<Page loaded="pageLoaded" class="page" xmlns:drawer="views/drawer" actionBarHidden="true">
-
-<AbsoluteLayout>
-	
-	<GridLayout rows="auto,*, auto" columns="*" width="100%" height="100%" id="content" >
-	<!-- action bar -->
-		<GridLayout rows="auto" row="0" columns="50,*,auto,auto" horizontalAlignment="left"  color="white" height="56" class="actionbar" >
-			<label text="menu" fontSize="24" class="mat" textWrap="true" col="0" tap="{{toggleMenu}}"/>
-			<!-- <Label text="Home" fontSize="16"  textWrap="true"  col="1" /> -->
-			<Label text="search" fontSize="24" class="mat" textWrap="true" marginRight="16"  col="2" />
-			<Label text="notifications" fontSize="24" class="mat" textWrap="true" col="3" />
-		</GridLayout>
-
-	<!-- frame window -->
-		<Frame  id="frame" row="1" defaultPage="views/blog/blog-page"/>
-
-	<!-- nav bar -->
-		<GridLayout row="2" columns="*,*,*,*,*" backgroundColor="#8c0444"  color="white" class="navbar">
-			<StackLayout id="blog"  col="0" tap="{{ navigate }}" padding="15 20" horizontalAlignment="center">
-				<Label text="home" class="mat" textWrap="true" textAlignment="center" />
-				<!-- <Label text="Home" textWrap="true" class="bottom-nav-text" /> -->
+<Page loaded="pageLoaded" class="page" actionBarHidden="true" >
+	<nsDrawer:RadSideDrawer id="sideDrawer" xmlns:nsDrawer="nativescript-ui-sidedrawer">
+		<nsDrawer:RadSideDrawer.drawerContent>
+			<!-- side drawer -->
+			<StackLayout  tap="{{onCLoseDrawerTap}}" width="100%" height="100%">
+				<StackLayout backgroundColor="#d9115A" width="80%" height="100%" horizontalAlignment="left" color="white">
+					<!-- section 01 -->
+					<StackLayout backgroundColor="#59023b" padding="10,20">
+						<StackLayout height="60" width="60" backgroundColor="white" borderRadius="300" horizontalAlignment="left"></StackLayout>
+						<label text="Usernames" class="font-weight-bold" fontSize="18" color="white" />
+						<label text="Location" fontSize="12" color="white" />
+					</StackLayout>
+					<!-- section 02 -->
+					<StackLayout backgroundColor="#8c0444" padding="10,0">
+						<GridLayout columns="*,*,*" rows="auto">
+							<StackLayout col="0">
+								<label text="35" class="strong" fontSize="24" textAlignment="center" />
+								<label text="Follows" fontSize="12" textAlignment="center" />
+							</StackLayout>
+							<StackLayout col="1">
+								<label text="35" class="strong" fontSize="24" textAlignment="center" />
+								<label text="Replies" fontSize="12" textAlignment="center" />
+							</StackLayout>
+							<StackLayout col="2">
+								<label text="35" class="strong" fontSize="24" textAlignment="center" />
+								<label text="Votes" fontSize="12" textAlignment="center" />
+							</StackLayout>
+						</GridLayout>
+					</StackLayout>
+					<!-- section 03 -->
+					<FlexboxLayout flexDirection="column" padding="10,20" height="100%">
+						<ScrollView flexGrow="1">
+							<StackLayout class="nav" verticalAlignment="center">
+								<label text="Home" id="blog" tap="{{navigate}}" />
+								<label text="Forum" id="forum" tap="{{navigate}}" />
+								<label text="Blog" id="blog" tap="{{navigate}}" />
+								<label text="Comic" id="comic" tap="{{navigate}}" />
+								<label text="Profile" id="profile" tap="{{navigate}}" />
+								<label text="Feedback" />
+								<label text="About Us" />
+								<label text="Log out" tap="{{logout}}" />
+							</StackLayout>
+						</ScrollView>
+						<StackLayout>
+							<label text="Credits" class="font-weight-bold m-b-20" fontSize="12" />
+							<label text="Wave version 1.0.1" class="font-weight-bold" fontSize="12" />
+						</StackLayout>
+					</FlexboxLayout>
+				</StackLayout>
 			</StackLayout>
-			<StackLayout id="forum"  tap="{{ navigate }}" padding="15 20" col="1" horizontalAlignment="center">
-				<Label text="record_voice_over" class="mat" textWrap="true" textAlignment="center" />
-				<!-- <Label text="Forum" textWrap="true" class="bottom-nav-text" /> -->
-			</StackLayout>
-			<StackLayout id="blog"  tap="{{ navigate }}" padding="15 20" col="2" horizontalAlignment="center">
-				<Label text="library_books" class="mat" textWrap="true" textAlignment="center" />
-				<!-- <Label text="Blog" textWrap="true" class="bottom-nav-text" /> -->
-			</StackLayout>
-			<StackLayout id="comic"  tap="{{ navigate }}" padding="15 20" col="3" horizontalAlignment="center">
-				<Label text="new_releases" class="mat" textWrap="true" textAlignment="center" />
-				<!-- <Label text="Comics" textWrap="true" class="bottom-nav-text" /> -->
-			</StackLayout>
-			<StackLayout id="profile"  tap="{{ navigate }}" padding="15 20" col="4" horizontalAlignment="center">
-				<Label text="account_circle" class="mat" textWrap="true" textAlignment="center" />
-				<!-- <Label text="Profile" textWrap="true" class="bottom-nav-text" /> -->
-			</StackLayout>
-		</GridLayout>
-	</GridLayout>
-
- <!-- side drawer -->
-<drawer:drawer-page width='100%' height='100%' id='menu' />
-
-</AbsoluteLayout>
-
+		</nsDrawer:RadSideDrawer.drawerContent>
+		<nsDrawer:RadSideDrawer.mainContent>
+			<!-- main content -->
+			<GridLayout rows="auto,*, auto" columns="*" width="100%" height="100%" id="content">
+				<!-- action bar -->
+				<GridLayout rows="auto" row="0" columns="50,*,auto,auto" horizontalAlignment="left" color="white" height="56" class="actionbar">
+					<label text="menu" fontSize="24" class="mat" textWrap="true" col="0" tap="{{onOpenDrawerTap}}" />
+					<!-- <Label text="Home" fontSize="16"  textWrap="true"  col="1" /> -->
+					<Label text="search" fontSize="24" class="mat" textWrap="true" marginRight="16" col="2" />
+					<Label text="notifications" fontSize="24" class="mat" textWrap="true" col="3" />
+				</GridLayout>
+				<!-- frame window -->
+				<Frame id="frame" row="1" defaultPage="views/blog/blog-page" />
+				<!-- nav bar -->
+				<GridLayout row="2" columns="*,*,*,*,*" backgroundColor="#8c0444" color="white" class="navbar">
+					<StackLayout id="blog" col="0" tap="{{ navigate }}" padding="15 20" horizontalAlignment="center">
+						<Label text="home" class="mat" textWrap="true" textAlignment="center" />
+						<!-- <Label text="Home" textWrap="true" class="bottom-nav-text" /> -->
+					</StackLayout>
+					<StackLayout id="forum" tap="{{ navigate }}" padding="15 20" col="1" horizontalAlignment="center">
+						<Label text="record_voice_over" class="mat" textWrap="true" textAlignment="center" />
+						<!-- <Label text="Forum" textWrap="true" class="bottom-nav-text" /> -->
+					</StackLayout>
+					<StackLayout id="blog" tap="{{ navigate }}" padding="15 20" col="2" horizontalAlignment="center">
+						<Label text="library_books" class="mat" textWrap="true" textAlignment="center" />
+						<!-- <Label text="Blog" textWrap="true" class="bottom-nav-text" /> -->
+					</StackLayout>
+					<StackLayout id="comic" tap="{{ navigate }}" padding="15 20" col="3" horizontalAlignment="center">
+						<Label text="new_releases" class="mat" textWrap="true" textAlignment="center" />
+						<!-- <Label text="Comics" textWrap="true" class="bottom-nav-text" /> -->
+					</StackLayout>
+					<StackLayout id="profile" tap="{{ navigate }}" padding="15 20" col="4" horizontalAlignment="center">
+						<Label text="account_circle" class="mat" textWrap="true" textAlignment="center" />
+						<!-- <Label text="Profile" textWrap="true" class="bottom-nav-text" /> -->
+					</StackLayout>
+				</GridLayout>
+			</GridLayout>
+		</nsDrawer:RadSideDrawer.mainContent>
+	</nsDrawer:RadSideDrawer>
 </Page>

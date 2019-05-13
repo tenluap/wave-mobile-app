@@ -5,6 +5,8 @@ purpose of the file is to pass control to the app’s first module.
 */
 
 import * as application from "tns-core-modules/application";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
+
 import { init } from "nativescript-facebook";
  
 application.on(application.launchEvent, function (args) {

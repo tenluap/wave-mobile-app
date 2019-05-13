@@ -1,15 +1,11 @@
-.btn {
-    font-size: 18;
+.info label{
+    color: white
 }
 
-@import '~nativescript-theme-core/css/core.light.css';
-
-.home-panel{
-    vertical-align: center;
-    font-size: 20;
-    margin: 15;
-}
-
-.description-label{
-    margin-bottom: 15;
+.info textField{
+    background-color: transparent;
+    color: white;
+    height: 20;
+    padding: 0;
+    font-size: 16
 }

@@ -1,16 +1,85 @@
-<Page loaded="pageLoaded" class="page">
-
-	<ActionBar title="profile" class="action-bar">
-	</ActionBar>
-
-	<ScrollView>
-		<StackLayout class="home-panel">
-			<!--Add your page content here-->
-			<Label textWrap="true" text="Play with NativeScript!" class="h2 description-label" />
-			<Label textWrap="true" text="Write code in the editor or drag and drop components to build a NativeScript mobile application."
-			 class="h2 description-label" />
-			<Label textWrap="true" text="Scan the QR code with your mobile device and watch the changes sync live while you play with the code."
-			 class="h2 description-label" />
+<Page loaded="pageLoaded" class="page" actionBarHidden="true">
+	<ScrollView scroll="">
+		<StackLayout>
+			<!-- profile dp info -->
+			<Label text="Profile" class="strong m-l-20 h1 p-y-10" color="#3B5998" />
+			<AbsoluteLayout width="100%">
+				<AbsoluteLayout backgroundColor="#59023B" top="60" height="65" width="100%" />
+				<StackLayout width="100%">
+					<GridLayout rows="auto,auto" columns="auto, *" padding="0 20">
+						<image src="~/img/land.jpg" borderRadius="300" height="120" width="120" stretch="fill" row="0" col="0" rowSpan="2" borderColor="white" borderWidth="3" />
+						<StackLayout row="0" col="1" verticalAlignment="bottom" paddingLeft="10">
+							<label text="Member Since" color="black" class="bold" />
+							<label text="23rd Dec 2012" color="black" fontSize="12" />
+						</StackLayout>
+						<StackLayout row="1" col="1" paddingLeft="10" paddingTop="5 ">
+							<label text="Username" color="white" class="bold" />
+							<label text="ehigiepaul" color="white" fontSize="12" />
+						</StackLayout>
+					</GridLayout>
+				</StackLayout>
+				<label text="edit" class="mat" col="black" backgroundColor="white" padding="10" borderRadius="30" left="110" top="80"/>
+			</AbsoluteLayout>
+			<!-- stats section -->
+			<GridLayout rows="auto" columns="*,*,*,*" backgroundColor="#F2A950" padding="10,0" class="info">
+				<StackLayout horizontalAlignment="center" col="0">
+					<label text="30" class="strong h2" textAlignment="center" />
+					<label text="Follows" fontSize="12" textAlignment="center" class="bold" />
+				</StackLayout>
+				<StackLayout horizontalAlignment="center" col="1">
+					<label text="30" class="strong h2" textAlignment="center" />
+					<label text="Follows" fontSize="12" textAlignment="center" class="bold" />
+				</StackLayout>
+				<StackLayout horizontalAlignment="center" col="2">
+					<label text="30" class="strong h2" textAlignment="center" />
+					<label text="Follows" fontSize="12" textAlignment="center" class="bold" />
+				</StackLayout>
+				<StackLayout horizontalAlignment="center" col="3">
+					<label text="30" class="strong h2" textAlignment="center" />
+					<label text="Follows" fontSize="12" textAlignment="center" class="bold" />
+				</StackLayout>
+			</GridLayout>
+			<!-- basic information section -->
+			<StackLayout backgroundColor="#59023B" class="info" height="100%" paddingBottom="20">
+				<label text="Basic Information" class="bold h3 m-y-10" textAlignment="center" />
+				<GridLayout columns="*, auto ,40" padding="10 20" rows="auto">
+					<label text="Last Name" col="0" />
+					<TextField text="Paul" col="1" isEnabled="false" />
+					<label text="edit" textAlignment="center" class="mat" fontSize="24" col="2" />
+				</GridLayout>
+				<GridLayout columns="*, auto ,40" padding="10 20" rows="auto">
+					<label text="First Name" col="0" />
+					<TextField text="Paul" col="1" isEnabled="false" />
+					<label text="edit" textAlignment="center" class="mat" fontSize="24" col="2" />
+				</GridLayout>
+				<GridLayout columns="*, auto ,40" padding="10 20" rows="auto">
+					<label text="Date Of Birth" col="0" />
+					<TextField text="Paul" col="1" isEnabled="false" />
+					<label text="edit" textAlignment="center" class="mat" fontSize="24" col="2" />
+				</GridLayout>
+				<GridLayout columns="*, auto ,40" padding="10 20" rows="auto">
+					<label text="Phone Number" col="0" />
+					<TextField text="Paul" col="1" isEnabled="false" />
+					<label text="edit" textAlignment="center" class="mat" fontSize="24" col="2" />
+				</GridLayout>
+				<GridLayout columns="*, auto ,40" padding="10 20" rows="auto">
+					<label text="Gender" col="0" />
+					<TextField text="Paul" col="1" isEnabled="false" />
+					<label text="edit" textAlignment="center" class="mat" fontSize="24" col="2" />
+				</GridLayout>
+				<GridLayout columns="*, auto ,40" padding="10 20" rows="auto">
+					<label text="Email" col="0" />
+					<TextField text="Paul" col="1" isEnabled="false" />
+					<label text="edit" textAlignment="center" class="mat" fontSize="24" col="2" />
+				</GridLayout>
+				<ContentView height="2" backgroundColor="white" />
+				<ContentView marginTop="10">
+					<StackLayout padding="0 20">
+						<label text="Help" marginBottom="10" fontSize="12" />
+						<label text="Report Issues" class="bold" />
+					</StackLayout>
+				</ContentView>
+			</StackLayout>
 		</StackLayout>
 	</ScrollView>
 </Page>

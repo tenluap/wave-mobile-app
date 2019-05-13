@@ -13,7 +13,7 @@ export class ForumViewModel extends Observable {
         // console.log()
         page.navigate({
             moduleName: "views/forum/forum-view-page",
-            transition: { name: "slideLeft", duration: 300 } 
+            transition: { name: "slideLeft" } 
         })
     }
     create(ev: EventData) {
@@ -23,7 +23,7 @@ export class ForumViewModel extends Observable {
         // console.log()
         page.navigate({
             moduleName: "views/forum/forum-add-page",
-            transition: { name: "slideLeft", duration: 300 } 
+            transition: { name: "slideLeft" } 
         })
     }
 

@@ -1,7 +1,6 @@
-import { Frame } from 'tns-core-modules/ui/frame/frame';
 import { Observable, EventData } from 'tns-core-modules/data/observable';
-import { Page, getViewById } from 'tns-core-modules/ui/page/page';
-import { Label } from 'tns-core-modules/ui/label/label'
+import { StackLayout } from 'tns-core-modules/ui/layouts/stack-layout/stack-layout';
+import { GridLayout } from 'tns-core-modules/ui/layouts/grid-layout/grid-layout';
 
 
 export class DrawerViewModel extends Observable {
@@ -11,6 +10,17 @@ export class DrawerViewModel extends Observable {
 
     navTo(ev: EventData) {
 
+            let tappedMenu = <StackLayout>ev.object;
+            let rootView = <GridLayout>tappedMenu.parent.parent
+    
+            // prevent consecutive navigation to the same page
+        
+    
+            console.log(`views/${tappedMenu.id}/${tappedMenu.id}-page`)
+            // frame.set("defaultPage", `views/${tappedMenu.id}/${tappedMenu.id}-page`);
+    
+        
+    
 
     }
 }
