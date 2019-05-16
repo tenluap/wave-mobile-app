@@ -14,11 +14,15 @@ export class TabviewViewModel extends Observable {
     screenWidth;
     page: Page
 
+    profile
+
     constructor(page: Page) {
         super();
         // this.menuPos()
         this.page = page
         this.screenWidth = - screen.mainScreen.widthDIPs
+
+        
        
     }
 

@@ -5,26 +5,28 @@
 			<ScrollView height="100%" width="100%" scrollBarIndicatorVisible="false">
 				<StackLayout>
 					<label text="register" class="strong h1" color="black" />
-					<StackLayout backgroundColor="#27598C" padding="20" width="100%" borderRadius="5" color="white" marginBottom="10">
+					<StackLayout backgroundColor="#27598C" padding="20" width="100%" borderRadius="5" color="white" marginBottom="10" >
 						<label text="Last Name" fontSize="12" />
-						<text-field hint="Last Name" />
+						<text-field hint="Last Name" text="{{lastName}}" isEnabled="{{loading ? false : true}}" />
 						<label text="First Name" fontSize="12" />
-						<text-field hint="First Name" />
+						<text-field hint="First Name" text="{{firstName}}"  isEnabled="{{loading ? false : true}}"/>
 						<label text="Username" fontSize="12" />
-						<text-field hint="Username" />
+						<text-field hint="Username" text="{{username}}" isEnabled="{{loading ? false : true}}"/>
 						<label text="Password" fontSize="12" class="m-t-10" />
-						<text-field hint="Password" secure="true" />
+						<text-field hint="Password" secure="true" text="{{password}}" isEnabled="{{loading ? false : true}}"/>
 						<label text="Confirm Password" fontSize="12" class="m-t-10" />
-						<text-field hint="Confirm Password" secure="true" />
+						<text-field hint="Confirm Password" secure="true" text="{{cpassword}}" isEnabled="{{loading ? false : true}}" />
 						<label text="Email" fontSize="12" class="m-t-10" />
-						<text-field hint="Email" keyboardType="email" />
+						<text-field hint="Email" keyboardType="email" text="{{email}}" isEnabled="{{loading ? false : true}}"/>
 						<label text="Phone Number" fontSize="12" class="m-t-10" />
-						<text-field hint="Phone Number" keyboardType="number" />
-						<button type="submit" text="SIGNUP" color="white" backgroundColor="#37ABE2" class="m-t-10"></button>
-						<button type="submit" text="Cancel" color="white" backgroundColor="#D9115A" tap="{{login}}" class="m-b-0"></button>
+						<text-field hint="Phone Number" keyboardType="number" text="{{phone}}" isEnabled="{{loading ? false : true}}" />
+						<button type="submit" text="SIGNUP" color="white" backgroundColor="#37ABE2" tap="{{signup}}" class="m-t-10"></button>
+						<button type="submit" text="Cancel" color="white" backgroundColor="#D9115A"  class="m-b-0"></button>
 					</StackLayout>
 				</StackLayout>
 			</ScrollView>
 		</StackLayout>
+						<ActivityIndicator left="{{screen/1.2}}" top="20" busy="true" backgroundColor="#f2a950" borderRadius="50" color="#d9115A" width="50" height="50" visibility="{{ loading ? 'visible' : 'collapsed' }}" />
+
 	</AbsoluteLayout>
 </Page>

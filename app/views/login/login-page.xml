@@ -1,31 +1,38 @@
-<Page loaded="pageLoaded" class="page" actionBarHidden="true" >
-	<AbsoluteLayout width="100%" height="100%">
-		<image src="~/img/bg.jpg" stretch="fill" tintColor="rgba(255,255,255,0.3)" />
-		<FlexboxLayout flexDirection="column" padding="20,40" width="100%" height="100%">
+<Page loaded="pageLoaded" class="page" actionBarHidden="true">
+	<ScrollView>
+		<StackLayout >
+			<AbsoluteLayout width="100%" height="100%">
+				<image src="~/img/bg.jpg" stretch="fill" tintColor="rgba(255,255,255,0.3)" />
+				<FlexboxLayout flexDirection="column" padding="0,40, 10" width="100%" height="100%">
+					<StackLayout flexGrow="1">
 
-			<StackLayout flexGrow="1">
-				<label text="login" class="strong h1" color="black"  />
-				<StackLayout backgroundColor="#27598C" padding="20" width="100%" borderRadius="5" color="white">
-					<label text="Username" fontSize="12" />
-					<TextField hint="Username"  />
-					<label text="Password" fontSize="12" class="m-t-10" />
-					<text-field hint="Password" secure="true" />
-					<label text="Forgotten Password ?" textAlignment="right" class="m-t-20" />
-					<button type="submit" tap="{{view}}" text="LOGIN" color="white" backgroundColor="#37ABE2" class="m-t-10"></button>
-				</StackLayout>
-			</StackLayout>
+						<image src="~/img/logo_2.png" margin="20 0 10" width="150" horizontalAlignment="center" />
 
-			<StackLayout flexGrow="1">
-				<label text="OR" class="" textAlignment="center" />
-				<button text="Login with Facebook" color="white" backgroundColor="#3B5998" tap="{{loginFB}}"/>
-				<button text="SIGN UP" color="white" backgroundColor="#f2a950" tap="{{register}}"/>
-			</StackLayout>
-
-			<FlexboxLayout alignSelf="center" color="#27598C" tap="{{register}}" >
+						<label text="login" class="strong h1" color="black" />
+						<StackLayout backgroundColor="#27598C" padding="20" width="100%" borderRadius="5" color="white">
+							<label text="{{message}}" class="bold" visibility="{{ message !== undefined ? 'visible' : 'collapsed' }}" textAlignment="center" color="red" backgroundColor="white" fontSize="16" />
+							<label text="Username" fontSize="12" />
+							<TextField hint="Username" text="{{username}}" />
+							<label text="Password" fontSize="12" class="m-t-10" />
+							<TextField hint="Password" text="{{password}}" secure="true" />
+							<label text="Forgotten Password ?" textAlignment="right" class="m-t-20" />
+							<button type="submit" tap="{{login}}" text="LOGIN" color="white" backgroundColor="#37ABE2" class="m-t-10"></button>
+						</StackLayout>
+					</StackLayout>
+					<StackLayout flexGrow="1" marginTop="20" >
+						<label text="OR" class="" textAlignment="center" />
+						<button text="Login with Facebook" color="white" backgroundColor="#3B5998" tap="{{loginFB}}" />
+						<button text="SIGN UP" color="white" backgroundColor="#f2a950" tap="{{register}}" />
+					</StackLayout>
+					<!-- <FlexboxLayout alignSelf="center" color="#27598C" tap="{{register}}">
 				<label text="Register, " />
 				<label text="New user ?" class="font-weight-bold" />
-			</FlexboxLayout>
+			</FlexboxLayout> -->
+				</FlexboxLayout>
+				<ActivityIndicator left="{{screen/1.2}}" top="110" busy="true" backgroundColor="#f2a950" borderRadius="50" color="#d9115A" width="50" height="50" visibility="{{ loading ? 'visible' : 'collapsed' }}" />
+			</AbsoluteLayout>
+		</StackLayout>
+	
+	</ScrollView>
 
-		</FlexboxLayout>
-	</AbsoluteLayout>
 </Page>
