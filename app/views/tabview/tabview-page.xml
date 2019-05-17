@@ -7,24 +7,24 @@
 					<!-- section 01 -->
 					<StackLayout backgroundColor="#59023b" padding="10,20">
 						<StackLayout height="60" width="60" backgroundColor="white" borderRadius="300" horizontalAlignment="left"></StackLayout>
-						<label text="Usernames" class="font-weight-bold" fontSize="18" color="white" />
-						<label text="Location" fontSize="12" color="white" />
+						<label text="{{profile.username}}" class="font-weight-bold" fontSize="18" color="white" />
+						<label text="{{profile.email}}" fontSize="12" color="white" />
 					</StackLayout>
 					<!-- section 02 -->
 					<StackLayout backgroundColor="#8c0444" padding="10,0">
-						<GridLayout columns="*,*,*" rows="auto">
+						<GridLayout columns="*,*" rows="auto">
 							<StackLayout col="0">
-								<label text="35" class="strong" fontSize="24" textAlignment="center" />
+								<label text="{{profile.follows.length}}" class="strong" fontSize="24" textAlignment="center" />
 								<label text="Follows" fontSize="12" textAlignment="center" />
 							</StackLayout>
 							<StackLayout col="1">
-								<label text="35" class="strong" fontSize="24" textAlignment="center" />
+								<label text="{{profile.replies.length}}" class="strong" fontSize="24" textAlignment="center" />
 								<label text="Replies" fontSize="12" textAlignment="center" />
 							</StackLayout>
-							<StackLayout col="2">
+							<!-- <StackLayout col="2">
 								<label text="35" class="strong" fontSize="24" textAlignment="center" />
 								<label text="Votes" fontSize="12" textAlignment="center" />
-							</StackLayout>
+							</StackLayout> -->
 						</GridLayout>
 					</StackLayout>
 					<!-- section 03 -->

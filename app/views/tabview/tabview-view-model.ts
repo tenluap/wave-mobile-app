@@ -6,6 +6,8 @@ import { StackLayout } from 'tns-core-modules/ui/layouts/stack-layout/stack-layo
 
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { getRootView } from 'tns-core-modules/application/application';
+import { localStorage, api } from '~/shared/env';
+import { request } from 'tns-core-modules/http/http';
 
 
 export class TabviewViewModel extends Observable {
@@ -22,6 +24,8 @@ export class TabviewViewModel extends Observable {
         this.page = page
         this.screenWidth = - screen.mainScreen.widthDIPs
 
+        this.profile = JSON.parse(localStorage.getString('profile'))
+        console.log(localStorage.getString('profile'))
         
        
     }
@@ -58,6 +62,23 @@ export class TabviewViewModel extends Observable {
     this.onCloseDrawerTap()
     }
 
+async logout(){
+    
+  await request({
+        url:api.logout.url+`?access_token=${localStorage.getString('token')}`,
+        method:api.login.method,
+    })
 
+    localStorage.clear()
+    
+    frame.topmost().navigate({
+        moduleName: "views/login/login-page",
+            transition: {
+                name: "slideRight",
+                // duration: 300
+            }
+    })
+
+}
 
 }

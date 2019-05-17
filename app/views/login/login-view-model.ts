@@ -38,7 +38,7 @@ export class LoginViewModel extends Observable {
 
       var auth = {
         content: JSON.stringify({
-          username: this.username,
+          username: this.username.toLowerCase(),
           password: this.password
         }), headers: {
           "Content-Type": "application/json"
@@ -57,22 +57,18 @@ export class LoginViewModel extends Observable {
           },2000)
         }else{
 
-          setTimeout(async ()=>{
+          setTimeout( async ()=>{
 
             var r = res.content.toJSON()
             localStorage.setString("token", r.id)
             localStorage.setString("userId", r.userId)
             
-            var profile = await request({
-              url:api.profile.url+`?filter={"where":{"userId":${r.userId}}}`,
-              method: api.profile.method,
-              headers: {
-                "Content-Type": "application/json"
-              }
-            })
+         var profile = await request({
+           url: api.profile.url+`?filter={"where":{"userId":"${r.userId}"}}`,
+           method:'get'
+         })
 
-            localStorage.setString('profile',JSON.stringify(profile))
-
+            localStorage.setString('profile',JSON.stringify(profile.content.toJSON()[0]))
   
             topmost().navigate({
                 transition:{

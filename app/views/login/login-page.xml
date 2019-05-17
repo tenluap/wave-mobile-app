@@ -12,7 +12,7 @@
 						<StackLayout backgroundColor="#27598C" padding="20" width="100%" borderRadius="5" color="white">
 							<label text="{{message}}" class="bold" visibility="{{ message !== undefined ? 'visible' : 'collapsed' }}" textAlignment="center" color="red" backgroundColor="white" fontSize="16" />
 							<label text="Username" fontSize="12" />
-							<TextField hint="Username" text="{{username}}" />
+							<TextField hint="Username" text="{{username}}" textTransform="lowercase"/>
 							<label text="Password" fontSize="12" class="m-t-10" />
 							<TextField hint="Password" text="{{password}}" secure="true" />
 							<label text="Forgotten Password ?" textAlignment="right" class="m-t-20" />

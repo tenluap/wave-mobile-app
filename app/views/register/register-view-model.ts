@@ -33,7 +33,7 @@ export class RegisterViewModel extends Observable {
 
             var auth = {
                 content: JSON.stringify({
-                    username: this.username,
+                    username: this.username.toLowerCase(),
                     password: this.password,
                     email: this.email,
                     phone: this.phone,
