@@ -2,18 +2,34 @@ import { Observable, EventData } from 'tns-core-modules/data/observable';
 import { Page } from 'tns-core-modules/ui/page/page';
 import { confirm } from 'tns-core-modules/ui/dialogs/dialogs';
 import { topmost } from 'tns-core-modules/ui/frame/frame';
-
+import { request } from 'tns-core-modules/http/http';
+import { api, localStorage } from '~/shared/env';
+import moment from "moment"
 export class ForumAddViewModel extends Observable {
+    title;
+    content
     constructor() {
         super();
     }
 
-    submit(ev:EventData){
+    async submit(ev:EventData){
+    
         var submit = <Page>ev.object
     
-        confirm("Are you sure this is what you want to create").then(val=>{
+        confirm("Are you sure this is what you want to create").then(async val=>{
             if(val){
                 // push to the db
+                await request({
+                    url:api.forum.url,
+                    method:api.forum.method,
+                    content:JSON.stringify({
+                        title:this.title,
+                        content:this.content,
+                        date:moment().format(),
+                        owner:JSON.parse(localStorage.getString('profile')).id
+                    })
+                })
+                
                 topmost().goBack()
             }
         })
