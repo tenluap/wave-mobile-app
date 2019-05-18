@@ -1,35 +1,20 @@
 <Page loaded="pageLoaded" class="page" actionBarHidden="true">
-	<ScrollView>
-		<StackLayout>
-			<Label text="Blog" class="strong m-l-20 h1 p-y-10" color="#3B5998" />
-			<!-- <ListView items="">
-				<ListView.itemTemplate>
-					<AbsoluteLayout height="170" width="100%">
-						<image src="~/img/land2.jpg" stretch="aspectFit" width="100%" tintColor="rgba(0,0,0,0.4)" />
-						<label text="Content Title goes here " textWrap="true" width="100%" color="white" fontSize="16" style="font-weight:400" padding="0 20" top="120" />
-					</AbsoluteLayout>
-				</ListView.itemTemplate>
-			</ListView> -->
-			<AbsoluteLayout height="170" width="100%" id='test' tap="{{goto}}" >
-				<image src="~/img/land2.jpg" stretch="aspectFit" width="100%" tintColor="rgba(0,0,0,0.4)" />
-				<label text="Content Title goes here 2 " textWrap="true" width="100%" color="white" fontSize="16" style="font-weight:400" padding="0 20" top="120" />
-			</AbsoluteLayout>
-			<AbsoluteLayout height="170" width="100%" id='test' tap="{{goto}}" >
-				<image src="~/img/land.jpg" stretch="aspectFit" width="100%" tintColor="rgba(0,0,0,0.4)" />
-				<label text="Content Title goes here " textWrap="true" width="100%" color="white" fontSize="16" style="font-weight:400" padding="0 20" top="120" />
-			</AbsoluteLayout>
-			<AbsoluteLayout height="170" width="100%" id='test' tap="{{goto}}" >
-				<image src="~/img/land2.jpg" stretch="aspectFit" width="100%" tintColor="rgba(0,0,0,0.4)" />
-				<label text="Content Title goes here " textWrap="true" width="100%" color="white" fontSize="16" style="font-weight:400" padding="0 20" top="120" />
-			</AbsoluteLayout>
-			<AbsoluteLayout height="170" width="100%" id='test' tap="{{goto}}" >
-				<image src="~/img/land2.jpg" stretch="aspectFit" width="100%" tintColor="rgba(0,0,0,0.4)" />
-				<label text="Content Title goes here " textWrap="true" width="100%" color="white" fontSize="16" style="font-weight:400" padding="0 20" top="120" />
-			</AbsoluteLayout>
-		
+	<!-- <ScrollView > -->
+		<!-- <StackLayout > -->
 			
-
-			<button text="load more" class="btn" width="200" />
-		</StackLayout>
-	</ScrollView>
+			<!-- <Label text="Blog" class="strong m-l-20 h1 p-y-10" color="#3B5998" /> -->
+			<ActivityIndicator busy="true" visibility="{{ loading ? 'visible' : 'collapsed' }}" verticalAlignment="center" horizontalAlignment="center"/>
+			  <ListView  items="{{post}}" itemTap="{{goto}}" >
+                <ListView.itemTemplate>
+					<StackLayout  id="{{id}}" >
+						<AbsoluteLayout height="170" width="100%" >
+						<image src="{{jetpack_featured_media_url ||'~/img/land2.jpg'}}" stretch="aspectFit" width="100%" tintColor="rgba(0,0,0,0.7)" />
+						<label text="{{title.rendered}}" textWrap="true" width="100%" color="white" fontSize="16" style="font-weight:400" padding="0 20" top="120" />
+					</AbsoluteLayout>
+					</StackLayout>
+                </ListView.itemTemplate>
+			  </ListView>		
+			<!-- <button text="load more" class="btn" width="200" /> -->
+		<!-- </StackLayout> -->
+	<!-- </ScrollView> -->
 </Page>

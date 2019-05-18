@@ -25,7 +25,7 @@ export class TabviewViewModel extends Observable {
         this.screenWidth = - screen.mainScreen.widthDIPs
 
         this.profile = JSON.parse(localStorage.getString('profile'))
-        console.log(localStorage.getString('profile'))
+        // console.log(localStorage.getString('profile'))
         
        
     }

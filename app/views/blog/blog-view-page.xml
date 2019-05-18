@@ -1,41 +1,43 @@
 <Page loaded="pageLoaded" class="page" actionBarHidden="true">
-		
-<GridLayout rows="auto,*" columns="*">
-<GridLayout rows="auto" row="0" columns="50,*,auto,auto" horizontalAlignment="left"  color="white" height="56" class="actionbar" >
+
+	<GridLayout rows="auto,*" columns="*">
+		<GridLayout rows="auto" row="0" columns="50,*,auto,auto" horizontalAlignment="left" color="white" height="56" class="actionbar">
 			<label text="arrow_back" fontSize="24" class="mat" textWrap="true" tap="{{goBack}}" col="0" />
-			<!-- <Label text="Home" fontSize="16"  textWrap="true"  col="1" /> -->
-			<Label text="share" fontSize="24" class="mat" textWrap="true" marginRight="16"  col="2" tap="{{shareBtn}}" />
+			<!-- <Label text="Home" fontSize="16" textWrap="true" col="1" /> -->
+			<Label text="share" fontSize="24" class="mat" textWrap="true" marginRight="16" col="2" tap="{{shareBtn}}" />
 			<Label text="notifications" fontSize="24" class="mat" textWrap="true" col="3" />
 		</GridLayout>
 
-	<ScrollView width="100%" height="100%" row="1">
+		<ScrollView width="100%" height="100%" row="1">
 
-		<StackLayout>
-		
-				<image src="~/img/land2.jpg" stretch="aspectFill" height="170"  width="100%"  />
+			<StackLayout>
+
+				<image src="{{content.jetpack_featured_media_url}}" stretch="aspectFill" height="170" width="100%" />
 
 				<StackLayout padding="20">
-				<Label text="Content title goes here" textTransform="uppercase" class="strong " marginBottom="10" fontSize="28" color="#3B5998" />
+					<Label text="{{content.title.rendered}}" textTransform="uppercase" class="strong " marginBottom="10" fontSize="28" color="#3B5998" />
 
-				<label text="{{lorem}}" textWrap="true" color="black" class="body"/>
+					<!-- <label text="{{content.content.rendered}}" textWrap="true" color="black" class="body"/> -->
+					<WebView src="{{content.content.rendered}}" />
 
 				</StackLayout>
 
 				<StackLayout backgroundColor="#59023B" padding="10 20">
 					<StackLayout orientation="horizontal" marginBottom="10">
-						<button text="Bible" color="white" backgroundColor="#8C0444" width="50%"/>
-						<button text="Quran" color="white" backgroundColor="#8C0444" width="50%"/>
+						<button text="Bible" color="white" backgroundColor="#8C0444" width="50%"  tap="{{toggle}}"/>
+						<button text="Quran" color="white" backgroundColor="#8C0444" width="50%" tap="{{toggle}}"/>
 					</StackLayout>
 
-					<Label text="{{lorem2}}" textWrap="true" color="white" class="body"/>
+					<!-- <Label text="{{lorem2}}" textWrap="true" color="white" class="body"/> -->
+					<WebView src="{{tog ? content.acf.bible : content.acf.quran}}" />
 				</StackLayout>
-		</StackLayout>
-	</ScrollView>
+			</StackLayout>
+		</ScrollView>
 
 
-</GridLayout>
+	</GridLayout>
 
 
 
-	
+
 </Page>

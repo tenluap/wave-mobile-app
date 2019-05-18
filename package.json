@@ -13,6 +13,8 @@
   "license": "SEE LICENSE IN <your-license-filename>",
   "repository": "<fill-your-repository-here>",
   "dependencies": {
+    "@types/moment": "^2.13.0",
+    "moment": "^2.24.0",
     "nativescript-facebook": "3.0.0",
     "nativescript-social-share": "1.5.1",
     "nativescript-theme-core": "~1.0.4",

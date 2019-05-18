@@ -22,11 +22,15 @@ export class ForumAddViewModel extends Observable {
                 await request({
                     url:api.forum.url,
                     method:api.forum.method,
+                    headers:{
+                     'Content-Type': 'application/json'
+                    },
                     content:JSON.stringify({
-                        title:this.title,
+                        topic:this.title,
                         content:this.content,
-                        date:moment().format(),
-                        owner:JSON.parse(localStorage.getString('profile')).id
+                        date:moment().format('Do MMMM YYYY'),
+                        owner:JSON.parse(localStorage.getString('profile')).id,
+                        views:0
                     })
                 })
                 

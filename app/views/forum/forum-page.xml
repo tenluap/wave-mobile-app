@@ -19,36 +19,27 @@
 			<!-- section 03 -->
 			<StackLayout class="list">
 				<!-- card -->
-				<StackLayout backgroundColor="#3B5998" tap="{{goto}}">
-					<GridLayout rows="auto" columns="auto,*,auto" padding="5 0">
-						<image src="~/img/land.jpg" borderColor="white" borderWidth="2"  width="50" height="50" borderRadius="300" stretch="fill" row="0" col="0" colSpan="1" margin="0 10" />
-						<StackLayout col="1">
-							<label text="Forum title"  fontSize="16" />
-							<label text="Date"  fontSize="12" />
+				<ListView items="{{topics}}" itemTap="{{goto}}">
+					<ListView.itemTemplate>
+						<StackLayout backgroundColor="#3B5998">
+							<GridLayout rows="auto" columns="auto,*,auto" padding="5 0">
+								<image src="~/img/land.jpg" borderColor="white" borderWidth="2" width="50" height="50" borderRadius="300" stretch="fill" row="0" col="0" colSpan="1" margin="0 10" />
+								<StackLayout col="1">
+									<label text="{{topic}}" fontSize="16" />
+									<label text="{{date}}" fontSize="12" />
+								</StackLayout>
+								<StackLayout col="2" margin="0 10">
+									<label text="{{views}}" fontSize="16" textAlignment="center" />
+									<label text="Views" fontSize="12" textAlignment="center" />
+								</StackLayout>
+							</GridLayout>
+							<ContentView height="5" backgroundColor="white" marginTop="5"></ContentView>
 						</StackLayout>
-						<StackLayout col="2" margin="0 10">
-							<label text="123"  fontSize="16" textAlignment="center" />
-							<label text="Views"  fontSize="12" textAlignment="center" />
-						</StackLayout>
-					</GridLayout>
-					<ContentView height="5" backgroundColor="white" marginTop="5"></ContentView>
-				</StackLayout>
-				<!-- card -->
-				<StackLayout backgroundColor="#3B5998">
-					<GridLayout rows="auto" columns="auto,*,auto" padding="5 0">
-						<image src="~/img/land.jpg" borderColor="white" borderWidth="2"  width="50" height="50" borderRadius="300" stretch="fill" row="0" col="0" colSpan="1" margin="0 10" />
-						<StackLayout col="1">
-							<label text="Forum title"  fontSize="16" />
-							<label text="Date"  fontSize="12" />
-						</StackLayout>
-						<StackLayout col="2" margin="0 10">
-							<label text="123"  fontSize="16" textAlignment="center" />
-							<label text="Views"  fontSize="12" textAlignment="center" />
-						</StackLayout>
-					</GridLayout>
-					<ContentView height="5" backgroundColor="white" marginTop="5"></ContentView>
-				</StackLayout>
-			
+					</ListView.itemTemplate>
+				</ListView>
+
+
+
 			</StackLayout>
 			<ContentView>
 				<button text="Load More" width="auto" horizontalAlignment="center" color="white" backgroundColor="#3B5998" />
