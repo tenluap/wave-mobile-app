@@ -26,8 +26,8 @@ export class TabviewViewModel extends Observable {
 
         this.profile = JSON.parse(localStorage.getString('profile'))
         // console.log(localStorage.getString('profile'))
-        
-       
+
+
     }
 
     public onOpenDrawerTap() {
@@ -38,9 +38,9 @@ export class TabviewViewModel extends Observable {
     public onCloseDrawerTap() {
         let sideDrawer: RadSideDrawer = <RadSideDrawer>getRootView().getViewById("sideDrawer");
         sideDrawer.closeDrawer();
-     
 
-        
+
+
     }
 
 
@@ -58,27 +58,31 @@ export class TabviewViewModel extends Observable {
 
         console.log(`views/${tappedMenu.id}/${tappedMenu.id}-page`)
         view.set("defaultPage", `views/${tappedMenu.id}/${tappedMenu.id}-page`);
-    //    frame.topmost().navigate({moduleName:`views/${tappedMenu.id}/${tappedMenu.id}-page`})
-    this.onCloseDrawerTap()
+        //    frame.topmost().navigate({moduleName:`views/${tappedMenu.id}/${tappedMenu.id}-page`})
+        this.onCloseDrawerTap()
     }
 
-async logout(){
-    
-  await request({
-        url:api.logout.url+`?access_token=${localStorage.getString('token')}`,
-        method:api.login.method,
-    })
+     logout(ev) {
+        console.log('loging out')
+        localStorage.clear()
+        let selected = <StackLayout>ev.object
+        var page = selected.page.frame.parent.parent.page.frame
 
-    localStorage.clear()
-    
-    frame.topmost().navigate({
-        moduleName: "views/login/login-page",
+        page.navigate({
+            moduleName: "views/login/login-page",
             transition: {
                 name: "slideRight",
                 // duration: 300
             }
-    })
+        })
+         request({
+            url: api.logout.url + `?access_token=${localStorage.getString('token')}`,
+            method: api.login.method,
+        })
 
-}
+
+
+
+    }
 
 }

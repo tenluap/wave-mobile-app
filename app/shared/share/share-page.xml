@@ -1,8 +1,0 @@
-<page actionBarHidden="true" showingModally="pageLoaded">
-		<StackLayout width="100%">
-			<button text="Twitter" id="twitter"/>
-			<button text="Facebook" id="facebook"/>
-			<button text="Copy Link" id="copy"/>
-		</StackLayout>
-</page>
-

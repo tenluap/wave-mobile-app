@@ -12,29 +12,34 @@ export class ForumAddViewModel extends Observable {
         super();
     }
 
-    async submit(ev:EventData){
+
+     submit(ev:EventData){
     
         var submit = <Page>ev.object
     
         confirm("Are you sure this is what you want to create").then(async val=>{
+            console.log(val)
             if(val){
                 // push to the db
-                await request({
+                 request({
                     url:api.forum.url,
                     method:api.forum.method,
                     headers:{
-                     'Content-Type': 'application/json'
+                     'Content-Type': 'application/json',
+                     "Authorization": localStorage.getString("token")
                     },
                     content:JSON.stringify({
                         topic:this.title,
                         content:this.content,
-                        date:moment().format('Do MMMM YYYY'),
+                        date:moment.now(),
                         owner:JSON.parse(localStorage.getString('profile')).id,
                         views:0
                     })
+                }).then(d=>{
+console.log(d)
+                    topmost().goBack()
                 })
                 
-                topmost().goBack()
             }
         })
     }

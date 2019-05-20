@@ -1,6 +1,6 @@
 <Page loaded="pageLoaded" class="page" actionBarHidden="true">
 	<ScrollView>
-		<StackLayout>
+		<StackLayout height="100%">
 			<!-- section 01 -->
 			<GridLayout rows="auto" columns="*,*" padding="0 10">
 				<Label text="Forum" class="strong h1 p-y-10" color="#3B5998" row="0" col="0" />
@@ -17,11 +17,10 @@
 				</StackLayout>
 			</ScrollView>
 			<!-- section 03 -->
-			<StackLayout class="list">
 				<!-- card -->
-				<ListView items="{{topics}}" itemTap="{{goto}}">
+				<ListView items="{{topics}}" itemTap="{{goto}}"  height="100%">
 					<ListView.itemTemplate>
-						<StackLayout backgroundColor="#3B5998">
+						<StackLayout backgroundColor="#3B5998" class="list">
 							<GridLayout rows="auto" columns="auto,*,auto" padding="5 0">
 								<image src="~/img/land.jpg" borderColor="white" borderWidth="2" width="50" height="50" borderRadius="300" stretch="fill" row="0" col="0" colSpan="1" margin="0 10" />
 								<StackLayout col="1">
@@ -40,7 +39,6 @@
 
 
 
-			</StackLayout>
 			<ContentView>
 				<button text="Load More" width="auto" horizontalAlignment="center" color="white" backgroundColor="#3B5998" />
 			</ContentView>

@@ -1,4 +1,4 @@
-let host="http://192.168.0.101:3000/api/"
+let host="https://api.beliepedia.com/api/"
 import * as store from 'tns-core-modules/application-settings'
 
 export var localStorage = store;

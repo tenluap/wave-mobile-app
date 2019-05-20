@@ -5,6 +5,7 @@ import { Page, NavigatedData } from 'tns-core-modules/ui/page/page';
 
 export function pageLoaded(args: NavigatedData) {
      let page = <Page>args.object;
-    page.bindingContext = new ForumViewViewModel();
+     let post = page.bindingContext
+    page.bindingContext = new ForumViewViewModel(post);
 }
 
