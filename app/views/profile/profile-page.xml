@@ -10,7 +10,7 @@
 						<image src="~/img/user.png" borderRadius="300" height="120" width="120" stretch="fill" row="0" col="0" rowSpan="2" borderColor="white" borderWidth="3" />
 						<StackLayout row="0" col="1" verticalAlignment="bottom" paddingLeft="10">
 							<label text="Member Since" color="black" class="bold" />
-							<!-- <label text="{{profile.createOn}}" color="black" fontSize="12" /> -->
+							<label text="{{profile.createdOn}}" color="black" fontSize="12" />
 						</StackLayout>
 						<StackLayout row="1" col="1" paddingLeft="10" paddingTop="5 ">
 							<label text="Username" color="white" class="bold" />

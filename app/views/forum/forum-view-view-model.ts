@@ -1,5 +1,5 @@
 import { Observable, EventData } from 'tns-core-modules/data/observable';
-import { Page, Color, NavigatedData } from 'tns-core-modules/ui/page/page';
+import { Page, Color, NavigatedData, idProperty } from 'tns-core-modules/ui/page/page';
 import { TextView } from 'tns-core-modules/ui/text-view/text-view'
 import { device, screen } from 'tns-core-modules/platform/platform';
 import { StackLayout } from 'tns-core-modules/ui/layouts/stack-layout/stack-layout';
@@ -39,6 +39,22 @@ export class ForumViewViewModel extends Observable {
         })
         // this.notifyPropertyChange("content",)
         
+    }
+
+    async follow(ev:EventData){
+        var selected = <Page>ev.object
+        var profileFollows = <[]>JSON.parse(localStorage.getString('profile')).follows
+       
+        if(profileFollows.some(d=>{
+            return true
+        })){
+            // delete it
+        }else{
+            // add create follow
+        }
+
+
+        console.log(profileFollows)
     }
 
     replyMessage(ev: EventData) {

@@ -11,7 +11,7 @@
 				<GridLayout rows="auto,auto, auto, auto" columns="*" padding="10 20">
 					<GridLayout row="0" columns="*, auto">
 						<Label text="{{content.topic}}" textWrap="true" col="0" textTransform="uppercase" class="strong h2 " marginBottom="10" color="#3B5998" />
-						<label text="star" textWrap="true" col="1" fontSize="34" color="black" class="body mat" />
+						<label text="star" tap="{{follow}}" textWrap="true" col="1" fontSize="34" color="black" class="body mat" />
 					</GridLayout>
 					<!-- row 2 -->
 					<label text="{{'Created on ' + content.date }}" style="font-weight:400" fontSize="12" color="#2F84C4" row="1" />
