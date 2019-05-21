@@ -7,7 +7,7 @@ import { Button } from 'tns-core-modules/ui/button/button';
 import { action, prompt, confirm } from 'tns-core-modules/ui/dialogs'
 import { topmost } from 'tns-core-modules/ui/frame/frame';
 import { request } from 'tns-core-modules/http/http';
-import { api, localStorage } from '~/shared/env';
+import { api, localStorage, refreshProfile } from '~/shared/env';
 import{Repeater} from 'tns-core-modules/ui/repeater'
 import moment from 'moment';
 import { ProfileViewModel } from '../profile/profile-view-model';
@@ -84,7 +84,7 @@ export class ForumViewViewModel extends Observable {
                         content: JSON.stringify(data)
 
                     })
-
+refreshProfile()
                         var arr =this.content.replies.push(data)
                     
                         this.reply = ""
