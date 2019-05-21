@@ -47,6 +47,7 @@ export class RegisterViewModel extends Observable {
             var data = Object.assign(api.register, auth)
             request(data).then(res => {
                 if (res.content.toJSON().error) {
+                    console.log(res)
                     setTimeout(() => {
                         this.loading = false
 

@@ -6,6 +6,7 @@ import { api, localStorage } from '~/shared/env';
 import { request } from 'tns-core-modules/http'
 import * as store from 'tns-core-modules/application-settings'
 import { screen } from 'tns-core-modules/platform/platform';
+
 export class LoginViewModel extends Observable {
   username: string
   password: string
@@ -47,7 +48,7 @@ export class LoginViewModel extends Observable {
 
       var data = Object.assign(api.login, auth)
 
-      request(data).then( res => {
+      request(data).then( async res => {
         if(res.content.toJSON().error){
           setTimeout(()=>{
             this.loading = false
@@ -57,7 +58,7 @@ export class LoginViewModel extends Observable {
           },2000)
         }else{
 
-          setTimeout( async ()=>{
+          // setTimeout( async ()=>{
 
             var r = res.content.toJSON()
             localStorage.setString("token", r.id)
@@ -77,7 +78,7 @@ export class LoginViewModel extends Observable {
                 },
                 moduleName:"views/tabview/tabview-page"
              })
-          }, 3000)
+          // }, 3000)
 
         }
 

@@ -1,21 +1,23 @@
 import { Observable, EventData } from 'tns-core-modules/data/observable';
 import { Page } from 'tns-core-modules/ui/page/page';
-import { screen } from 'tns-core-modules/platform/platform'
+import { screen, device } from 'tns-core-modules/platform/platform'
 import * as frame from 'tns-core-modules/ui/frame/frame';
 import { StackLayout } from 'tns-core-modules/ui/layouts/stack-layout/stack-layout';
 
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
-import { getRootView } from 'tns-core-modules/application/application';
+import { getRootView, android } from 'tns-core-modules/application/application';
 import { localStorage, api } from '~/shared/env';
 import { request } from 'tns-core-modules/http/http';
-
+import "nativescript-appversion"
+import { getVersionName } from 'nativescript-appversion';
+import { version } from 'moment';
 
 export class TabviewViewModel extends Observable {
     private static previousMenu: StackLayout;
     menu;
     screenWidth;
     page: Page
-
+version:string
     profile
 
     constructor(page: Page) {
@@ -27,6 +29,10 @@ export class TabviewViewModel extends Observable {
         this.profile = JSON.parse(localStorage.getString('profile'))
         // console.log(localStorage.getString('profile'))
 
+        getVersionName().then(d=>{
+            this.version =  d
+            this.notifyPropertyChange('version', d)
+        })
 
     }
 
@@ -38,8 +44,6 @@ export class TabviewViewModel extends Observable {
     public onCloseDrawerTap() {
         let sideDrawer: RadSideDrawer = <RadSideDrawer>getRootView().getViewById("sideDrawer");
         sideDrawer.closeDrawer();
-
-
 
     }
 
@@ -62,11 +66,11 @@ export class TabviewViewModel extends Observable {
         this.onCloseDrawerTap()
     }
 
-     logout(ev) {
+     async logout(ev) {
         console.log('loging out')
         localStorage.clear()
         let selected = <StackLayout>ev.object
-        var page = selected.page.frame.parent.parent.page.frame
+        var page = selected.page.frame
 
         page.navigate({
             moduleName: "views/login/login-page",
@@ -75,7 +79,7 @@ export class TabviewViewModel extends Observable {
                 // duration: 300
             }
         })
-         request({
+        await request({
             url: api.logout.url + `?access_token=${localStorage.getString('token')}`,
             method: api.login.method,
         })

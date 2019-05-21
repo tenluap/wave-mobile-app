@@ -21,7 +21,7 @@
 						<label text="Phone Number" fontSize="12" class="m-t-10" />
 						<text-field hint="Phone Number" keyboardType="number" text="{{phone}}" isEnabled="{{loading ? false : true}}" />
 						<button type="submit" text="SIGNUP" color="white" backgroundColor="#37ABE2" tap="{{signup}}" class="m-t-10"></button>
-						<button type="submit" text="Cancel" color="white" backgroundColor="#D9115A"  class="m-b-0"></button>
+						<button type="submit" text="Cancel" color="white" backgroundColor="#D9115A" tap="{{goback}}" class="m-b-0"></button>
 					</StackLayout>
 				</StackLayout>
 			</ScrollView>

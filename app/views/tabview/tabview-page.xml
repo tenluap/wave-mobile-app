@@ -33,7 +33,7 @@
 							<StackLayout class="nav" verticalAlignment="center">
 								<label text="Home" id="blog" tap="{{navigate}}" />
 								<label text="Forum" id="forum" tap="{{navigate}}" />
-								<label text="Blog" id="blog" tap="{{navigate}}" />
+								<!-- <label text="Blog" id="blog" tap="{{navigate}}" /> -->
 								<label text="Comic" id="comic" tap="{{navigate}}" />
 								<label text="Profile" id="profile" tap="{{navigate}}" />
 								<label text="Feedback" />
@@ -43,7 +43,7 @@
 						</ScrollView>
 						<StackLayout>
 							<label text="Credits" class="font-weight-bold m-b-20" fontSize="12" />
-							<label text="Wave version 1.0.1" class="font-weight-bold" fontSize="12" />
+							<label text="{{'Wave version ' + version}}" class="font-weight-bold" fontSize="12" />
 						</StackLayout>
 					</FlexboxLayout>
 				</StackLayout>
@@ -56,13 +56,13 @@
 				<GridLayout rows="auto" row="0" columns="50,*,auto,auto" horizontalAlignment="left" color="white" height="56" class="actionbar">
 					<label text="menu" fontSize="24" class="mat" textWrap="true" col="0" tap="{{onOpenDrawerTap}}" />
 					<!-- <Label text="Home" fontSize="16"  textWrap="true"  col="1" /> -->
-					<Label text="search" fontSize="24" class="mat" textWrap="true" marginRight="16" col="2" />
+					<!-- <Label text="search" fontSize="24" class="mat" textWrap="true" marginRight="16" col="2" /> -->
 					<Label text="notifications" fontSize="24" class="mat" textWrap="true" col="3" />
 				</GridLayout>
 				<!-- frame window -->
 				<Frame id="frame" row="1" defaultPage="views/blog/blog-page" />
 				<!-- nav bar -->
-				<GridLayout row="2" columns="*,*,*,*,*" backgroundColor="#8c0444" color="white" class="navbar">
+				<GridLayout row="2" columns="*,*,*,*" backgroundColor="#8c0444" color="white" class="navbar">
 					<StackLayout id="blog" col="0" tap="{{ navigate }}" padding="15 20" horizontalAlignment="center">
 						<Label text="home" class="mat" textWrap="true" textAlignment="center" />
 						<!-- <Label text="Home" textWrap="true" class="bottom-nav-text" /> -->
@@ -71,15 +71,15 @@
 						<Label text="record_voice_over" class="mat" textWrap="true" textAlignment="center" />
 						<!-- <Label text="Forum" textWrap="true" class="bottom-nav-text" /> -->
 					</StackLayout>
-					<StackLayout id="blog" tap="{{ navigate }}" padding="15 20" col="2" horizontalAlignment="center">
+					<!-- <StackLayout id="blog" tap="{{ navigate }}" padding="15 20" col="2" horizontalAlignment="center">
 						<Label text="library_books" class="mat" textWrap="true" textAlignment="center" />
-						<!-- <Label text="Blog" textWrap="true" class="bottom-nav-text" /> -->
-					</StackLayout>
-					<StackLayout id="comic" tap="{{ navigate }}" padding="15 20" col="3" horizontalAlignment="center">
+						<Label text="Blog" textWrap="true" class="bottom-nav-text" />
+					</StackLayout> -->
+					<StackLayout id="comic" tap="{{ navigate }}" padding="15 20" col="2" horizontalAlignment="center">
 						<Label text="new_releases" class="mat" textWrap="true" textAlignment="center" />
 						<!-- <Label text="Comics" textWrap="true" class="bottom-nav-text" /> -->
 					</StackLayout>
-					<StackLayout id="profile" tap="{{ navigate }}" padding="15 20" col="4" horizontalAlignment="center">
+					<StackLayout id="profile" tap="{{ navigate }}" padding="15 20" col="3" horizontalAlignment="center">
 						<Label text="account_circle" class="mat" textWrap="true" textAlignment="center" />
 						<!-- <Label text="Profile" textWrap="true" class="bottom-nav-text" /> -->
 					</StackLayout>

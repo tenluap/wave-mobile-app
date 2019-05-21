@@ -15,10 +15,26 @@ android {
     generatedDensities = []
     renderscriptTargetApi 25
     renderscriptSupportModeEnabled true
+    ndk {
+      abiFilters.clear()
+    }
   }
   aaptOptions {
     additionalParameters "--no-version-vectors"
   }
+    splits {
+      abi {
+        enable true //enables the ABIs split mechanism
+        reset() //reset the list of ABIs to be included to an empty string
+        include 'arm64-v8a', 'armeabi-v7a', 'x86', 'x86_64', 'armeabi', 'mips', 'mips64'
+        universalApk true
+      }
+    sourceSets {
+       main {
+           jniLibs.srcDirs = ["$projectDir/libs/jni", "$projectDir/snapshot-build/build/ndk-build/libs"]
+       }
+    }
+}
 }
 
 def settingsGradlePath
@@ -34,4 +50,15 @@ def settingsGradleFile = new File(settingsGradlePath);
 if(settingsGradleFile.exists())
 {
     apply from: settingsGradleFile;
+}
+
+project.ext.abiCodes = ['armeabi-v7a': 1, 'arm64-v8a': 2, 'x86': 3, 'x86_64':4, 'armeabi':5, 'mips':6, 'mips64':7]
+
+android.applicationVariants.all { variant ->
+    variant.outputs.each { output ->
+        def baseAbiVersionCode = project.ext.abiCodes.get(output.getFilter("ABI"), 0)
+        if (baseAbiVersionCode != null) {
+            output.versionCodeOverride = baseAbiVersionCode * 10000000 + variant.versionCode
+        }
+    }
 }

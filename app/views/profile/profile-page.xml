@@ -7,7 +7,7 @@
 				<AbsoluteLayout backgroundColor="#59023B" top="60" height="65" width="100%" />
 				<StackLayout width="100%">
 					<GridLayout rows="auto,auto" columns="auto, *" padding="0 20">
-						<image src="~/img/land.jpg" borderRadius="300" height="120" width="120" stretch="fill" row="0" col="0" rowSpan="2" borderColor="white" borderWidth="3" />
+						<image src="~/img/user.png" borderRadius="300" height="120" width="120" stretch="fill" row="0" col="0" rowSpan="2" borderColor="white" borderWidth="3" />
 						<StackLayout row="0" col="1" verticalAlignment="bottom" paddingLeft="10">
 							<label text="Member Since" color="black" class="bold" />
 							<!-- <label text="{{profile.createOn}}" color="black" fontSize="12" /> -->

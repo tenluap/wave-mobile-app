@@ -284,6 +284,16 @@ module.exports = env => {
         config.plugins.push(new webpack.HotModuleReplacementPlugin());
     }
 
+    if (env.snapshot) {
+        config.plugins.push(new nsWebpack.NativeScriptSnapshotPlugin({
+            chunk: "vendor",
+            projectRoot: __dirname,
+            webpackConfig: config,
+            targetArchs: ["arm", "arm64", "ia32"],
+            useLibs: true,
+            androidNdkPath: "D:/ehigiepaul/android-sdk/ndk-bundle"
+        }));
+    }
 
     return config;
 };

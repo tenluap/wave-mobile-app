@@ -1,11 +1,11 @@
 {
   "nativescript": {
     "id": "com.bracketcore.wave",
-    "tns-android": {
-      "version": "5.3.1"
-    },
     "tns-ios": {
       "version": "5.3.1"
+    },
+    "tns-android": {
+      "version": "5.4.0"
     }
   },
   "main": "app.js",
@@ -15,6 +15,7 @@
   "dependencies": {
     "@types/moment": "^2.13.0",
     "moment": "^2.24.0",
+    "nativescript-appversion": "^1.4.1",
     "nativescript-facebook": "3.0.0",
     "nativescript-social-share": "1.5.1",
     "nativescript-theme-core": "~1.0.4",

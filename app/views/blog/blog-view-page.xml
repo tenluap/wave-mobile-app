@@ -31,6 +31,7 @@
 					<!-- <Label text="{{lorem2}}" textWrap="true" color="white" class="body"/> -->
 					<WebView src="{{tog ? content.acf.bible : content.acf.quran}}" />
 				</StackLayout>
+				
 			</StackLayout>
 		</ScrollView>
 
