@@ -42,7 +42,7 @@
 							</StackLayout>
 						</ScrollView>
 						<StackLayout>
-							<label text="Credits" class="font-weight-bold m-b-20" fontSize="12" />
+							<label text="Credits" tap="{{credit}}" class="font-weight-bold m-b-20" fontSize="12" />
 							<label text="{{'Wave version ' + version}}" class="font-weight-bold" fontSize="12" />
 						</StackLayout>
 					</FlexboxLayout>

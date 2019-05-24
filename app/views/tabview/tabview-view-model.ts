@@ -11,13 +11,14 @@ import { request } from 'tns-core-modules/http/http';
 import "nativescript-appversion"
 import { getVersionName } from 'nativescript-appversion';
 import { version } from 'moment';
+import {Label} from 'tns-core-modules/ui/label'
 
 export class TabviewViewModel extends Observable {
     private static previousMenu: StackLayout;
     menu;
     screenWidth;
     page: Page
-version:string
+    version: string
     profile
 
     constructor(page: Page) {
@@ -29,8 +30,8 @@ version:string
         this.profile = JSON.parse(localStorage.getString('profile'))
         // console.log(localStorage.getString('profile'))
 
-        getVersionName().then(d=>{
-            this.version =  d
+        getVersionName().then(d => {
+            this.version = d
             this.notifyPropertyChange('version', d)
         })
 
@@ -66,9 +67,9 @@ version:string
         this.onCloseDrawerTap()
     }
 
-     async logout(ev) {
+    async logout(ev) {
         console.log('loging out')
-        localStorage.clear()
+        
         let selected = <StackLayout>ev.object
         var page = selected.page.frame
 
@@ -79,14 +80,22 @@ version:string
                 // duration: 300
             }
         })
+
         await request({
             url: api.logout.url + `?access_token=${localStorage.getString('token')}`,
             method: api.login.method,
         })
+        
+        localStorage.clear()
+    }
 
-
-
-
+    credit(ev:EventData){
+        var page = <Page>ev.object
+        this.onCloseDrawerTap()
+        // var credits = page.loadView()
+        page.showModal('views/credits/credits-page',{},()=>{})
+        
     }
 
 }
+

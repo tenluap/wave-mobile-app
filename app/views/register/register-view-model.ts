@@ -22,53 +22,63 @@ export class RegisterViewModel extends Observable {
     }
 
     signup() {
-       
-        if (this.username == undefined || this.password == undefined || this.email == undefined || this.phone == undefined) {
+
+        if ((this.username || this.password || this.email || this.phone) == undefined) {
             alert("Empty Field Sent. Please fill all fields")
 
         } else if (this.password == this.cpassword) {
-            this.loading = true
-            this.notifyPropertyChange('loading', "true")
+            var verifyUsername = RegExp(/\s/igm).test(this.username)
+            var verifyPassword = RegExp(/\s/igm).test(this.password)
+
+            if (verifyPassword || verifyUsername) {
+                alert("You cant have space in a Username/Password field. \n\nPlease make corrections")
+
+            } else {
+                this.loading = true
+                this.notifyPropertyChange('loading', "true")
 
 
-            var auth = {
-                content: JSON.stringify({
-                    username: this.username.toLowerCase(),
-                    password: this.password,
-                    email: this.email,
-                    phone: this.phone,
-                    lastName: this.lastName,
-                    firstName: this.firstName
-                }), headers: {
-                    "Content-Type": "application/json"
+                var auth = {
+                    content: JSON.stringify({
+                        username: this.username.toLowerCase(),
+                        password: this.password,
+                        email: this.email,
+                        phone: this.phone,
+                        lastName: this.lastName,
+                        firstName: this.firstName,
+                        amAdmin: false
+                    }), headers: {
+                        "Content-Type": "application/json"
+                    }
                 }
+
+                var data = Object.assign(api.register, auth)
+
+                request(data).then(res => {
+                    if (res.content.toJSON().error) {
+                        console.log(res)
+                        setTimeout(() => {
+                            this.loading = false
+                            this.message = "LOGIN FAILED"
+                            this.notifyPropertyChange('message', "LOGIN FAILED")
+                        }, 2000)
+                    } else {
+
+                        confirm('Account Created')
+                        topmost().navigate({
+                            moduleName: "views/login/login-page",
+                            transition: {
+                                duration: 300,
+                                name: "slideRight"
+                            }
+                        })
+
+                    }
+
+                })
             }
 
-            var data = Object.assign(api.register, auth)
-            request(data).then(res => {
-                if (res.content.toJSON().error) {
-                    console.log(res)
-                    setTimeout(() => {
-                        this.loading = false
 
-                        this.message = "LOGIN FAILED"
-                        this.notifyPropertyChange('message', "LOGIN FAILED")
-                    }, 2000)
-                } else {
-
-                    confirm('Account Created')
-                    topmost().navigate({
-                        moduleName: "views/login/login-page",
-                        transition: {
-                            duration: 300,
-                            name: "slideRight"
-                        }
-                    })
-
-                }
-
-            })
-           
         } else {
             alert("Confirm password")
         }

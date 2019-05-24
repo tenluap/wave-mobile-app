@@ -1,31 +1,24 @@
-<page loaded="pageLoaded" actionBarHidden="true">
-<ScrollView >
-	<StackLayout>
-		<Label text="Comic" class="strong m-l-20 h1 p-y-10" color="#3B5998" />
+<page loaded="pageLoaded" actionBarHidden="true" 
+	xmlns="http://schemas.nativescript.org/tns.xsd">
+	<ScrollView  >
+		<StackLayout>
+			<GridLayout rows="auto" columns="*,*" padding="0 10">
+				<Label text="Comic" class="strong h1 p-y-10" color="#3B5998" row="0" col="0" />
+				<Button text="add ADD" class="mat " tap="{{upload}}" visibility="{{ !profile.amAdmin ? 'visible' : 'collapsed' }}" horizontalAlignment="right" height="46" width="auto" backgroundColor="#D9115A" color="white" row="0" col="1" />
+			</GridLayout>
 
-	
-		<FlexboxLayout padding="0 20" flexWrap="wrap" justifyContent="space-between">
-			<StackLayout row="0" col="0" horizontalAlignment="left" marginBottom="10" tap="{{goto}}" >
-				<image src="~/img/land.jpg" width="{{width}}" height="250" stretch="aspectFill" borderRadius="4"/>
-				<label text="Episode 01" color="black" class="m-t-5" />
-			</StackLayout>
-			<StackLayout row="0" col="0" horizontalAlignment="left" marginBottom="10" tap="{{goto}}" >
-				<image src="~/img/land.jpg" width="{{width}}" height="250" stretch="aspectFill" borderRadius="4"/>
-				<label text="Episode 01" color="black" class="m-t-5" />
-			</StackLayout>
-			<StackLayout row="0" col="0" horizontalAlignment="left" marginBottom="10" tap="{{goto}}" >
-				<image src="~/img/land.jpg" width="{{width}}" height="250" stretch="aspectFill" borderRadius="4"/>
-				<label text="Episode 01" color="black" class="m-t-5" />
-			</StackLayout>
-			<StackLayout row="0" col="0" horizontalAlignment="left" marginBottom="10" tap="{{goto}}" >
-				<image src="~/img/land.jpg" width="{{width}}" height="250" stretch="aspectFill" borderRadius="4"/>
-				<label text="Episode 01" color="black" class="m-t-5" />
-			</StackLayout>
-			<StackLayout row="0" col="0" horizontalAlignment="left" marginBottom="10" tap="{{goto}}" >
-				<image src="~/img/land.jpg" width="{{width}}" height="250" stretch="aspectFill" borderRadius="4"/>
-				<label text="Episode 01" color="black" class="m-t-5" />
-			</StackLayout>
-		</FlexboxLayout>
-	</StackLayout>
-</ScrollView>	
+			<FlexboxLayout padding="0 20" flexWrap="wrap" justifyContent="space-between">
+
+				<ListView items="{{comics}}" itemTap="{{goto}}" id="{{$index}}" >
+					<ListView.itemTemplate>
+						<StackLayout row="0" col="0" horizontalAlignment="left" marginBottom="10" tap="{{goto}}">
+							<image src="{{pages[0].download}}" width="{{width}}" height="250" stretch="aspectFill" borderRadius="4"/>
+							<label text="{{'Episode '+episode}}" color="black" class="m-t-5" />
+						</StackLayout>
+					</ListView.itemTemplate>
+				</ListView>
+
+			</FlexboxLayout>
+		</StackLayout>
+	</ScrollView>
 </page>

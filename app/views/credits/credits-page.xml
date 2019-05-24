@@ -1,0 +1,18 @@
+<Page loaded="pageLoaded" class="page">
+
+	<ActionBar title="credits" class="action-bar">
+	</ActionBar>
+
+	<ScrollView>
+		<StackLayout class="home-panel" width="70%" >
+			<!--Add your page content here-->
+			<Label textWrap="true" text="APP CREDITS" class="h2 strong" textAlignment="center"  />
+			<Label textWrap="true" text="Graphic Designer" class="bold"/>
+			<Label textWrap="true" text="Hadiza Abdulkarim"/>
+			<Label textWrap="true" text="UX/UI Designer" class="bold m-t-10"/>
+			<Label textWrap="true" text="Ehigie Paul"/>
+			<Label textWrap="true" text="Developer" class="bold m-t-10"/>
+			<Label textWrap="true" text="Ehigie Paul"/>
+		</StackLayout>
+	</ScrollView>
+</Page>

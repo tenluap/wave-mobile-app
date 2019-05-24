@@ -1,4 +1,4 @@
-<Page loaded="pageLoaded" class="page" actionBarHidden="true">
+<Page loaded="pageLoaded" class="page" actionBarHidden="true" >
 
 <GridLayout rows='auto,*'>
 	<GridLayout rows="auto" columns="50 * auto auto" horizontalAlignment="left" color="white" height="56" width="100%" class="actionbar">
@@ -10,14 +10,14 @@
 
 		<ScrollView row="1">
 			<!-- list images for comic -->
-			<FlexboxLayout flexDirection="column" width="100%" padding="20" flexWrap="wrap" class="comic">
-				<image src="~/img/land.jpg" stretch="aspectFill" />
-				<image src="~/img/land.jpg" stretch="aspectFill" />
-				<image src="~/img/land.jpg" stretch="aspectFill" />
-				<image src="~/img/land.jpg" stretch="aspectFill" />
-				<image src="~/img/land.jpg" stretch="aspectFill" />
-
-			</FlexboxLayout>
+			<!-- <FlexboxLayout flexDirection="column" width="100%" padding="20" flexWrap="wrap" class="comic"> -->
+				<ListView items="{{pages}}" >
+					<ListView.itemTemplate>
+				<image src="{{download}}" stretch="aspectFill" />
+			
+				</ListView.itemTemplate>
+				</ListView>
+			<!-- </FlexboxLayout> -->
 		</ScrollView>
 </GridLayout>
 	

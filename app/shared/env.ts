@@ -1,8 +1,10 @@
 let host;
 var dev = false
 
-//  dev ? host="http://10.2.8.92:3000/api/" : 
- host="http://34.74.7.44:3000/api/";
+// host="http://api.beliepedia.org:3000/api/";
+// host="http://10.2.8.71:3000/api/" 
+host="http://192.168.0.103:3000/api/" 
+// host="http://127.0.0.1:3 000/api/" 
 
 import * as store from 'tns-core-modules/application-settings'
 import { request } from 'tns-core-modules/http/http';
@@ -22,6 +24,7 @@ forum:{method:"post", url:host+"forum"},
 viewCount:{method:"post", url:host+"forum/viewCount"},
 reply:{method:"post", url:host+"reply"},
 profile:{method:"get", url:host+"profile"},
+comics:{method:"get", url:host+"comic"},
 
 }
 

@@ -85,7 +85,7 @@ export class ForumViewViewModel extends Observable {
                     var data = {
                         username: this.profile.username,
                         content: newField.text,
-                        date: moment.now(),
+                        date: moment().format('Do MMMM YYYY'),
                         profilesId: this.profile.id,
                         forumsId: this.content.id
                     }

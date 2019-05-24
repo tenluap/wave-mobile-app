@@ -2,15 +2,19 @@ import { Observable, EventData } from 'tns-core-modules/data/observable';
 import { Page } from 'tns-core-modules/ui/page/page';
 import { topmost } from 'tns-core-modules/ui/frame/frame';
 import { request } from 'tns-core-modules/http/http';
-import { api } from '~/shared/env';
+import { api, localStorage } from '~/shared/env';
 import { ItemEventData } from 'tns-core-modules/ui/list-view/list-view';
+import moment from 'moment';
 
 export class ForumViewModel extends Observable {
     topics;
-    loading
+    loading;
+    profile;
+
     constructor() {
         super();
         this.loading = true
+        this.profile = JSON.parse(localStorage.getString('profile'))
 
         request({
             url: api.getForum.url,
@@ -20,13 +24,18 @@ export class ForumViewModel extends Observable {
             this.topics = list.content.toJSON()
             this.notifyPropertyChange("topics", list.content.toJSON())
             // console.log(list.content.toJSON())
+
         })
-    }
 
 
-    test(){
-        console.log('testing')
     }
+
+     dateTo(val){
+        var d =  moment(val).format("DD-MM-Y")
+        return d
+        
+      }
+
     
 
     goto(ev: ItemEventData) {

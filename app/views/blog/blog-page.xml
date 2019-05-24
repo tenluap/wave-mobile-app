@@ -1,9 +1,10 @@
 <Page loaded="pageLoaded" class="page" actionBarHidden="true">
 	<!-- <ScrollView > -->
-		<!-- <StackLayout > -->
+		<StackLayout >
 			
 			<!-- <Label text="Blog" class="strong m-l-20 h1 p-y-10" color="#3B5998" /> -->
 			<ActivityIndicator busy="true" visibility="{{ loading ? 'visible' : 'collapsed' }}" verticalAlignment="center" horizontalAlignment="center"/>
+			<label text="No Content Available" visibility="{{ post.length == 0 ? 'visible' : 'collapsed' }}" padding="20" textAlignment="center"/>
 			  <ListView  items="{{post}}" itemTap="{{goto}}" >
                 <ListView.itemTemplate>
 					<StackLayout  id="{{id}}" >
@@ -15,6 +16,6 @@
                 </ListView.itemTemplate>
 			  </ListView>		
 			<!-- <button text="load more" class="btn" width="200" /> -->
-		<!-- </StackLayout> -->
+		</StackLayout>
 	<!-- </ScrollView> -->
 </Page>

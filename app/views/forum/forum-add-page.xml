@@ -9,9 +9,9 @@
 		<ScrollView row="1">
 			<StackLayout padding="20">
 				<label text="Topic Title" fontSize="12" color="black" />
-				<TextField hint="Title goes here" text="{{title}}" color="black" borderColor="gray" borderWidth="2" />
+				<TextField hint="Title goes here" text="{{title}}" color="black" borderColor="gray" borderWidth="1.2" />
 				<label text="Topic Content" fontSize="12" marginTop="10" color="black" />
-				<TextView hint="Topic content goes here" text="{{content}}" color="black" borderColor="gray" borderWidth="2" borderRadius="4" minHeight="300" />
+				<TextView hint="Topic content goes here" text="{{content}}" color="black" borderColor="gray" borderWidth="1.2" borderRadius="4" minHeight="300" />
 			</StackLayout>
 		</ScrollView>
 	</GridLayout>

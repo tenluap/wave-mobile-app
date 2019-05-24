@@ -1,7 +1,7 @@
 {
     "xml.fileAssociations": [
         {
-            "systemId": "d:\\ehigiepaul\\Documents\\Projects\\wave-mobile-app\\schema\\tns.xsd",
+            "systemId": "d:\\ehigiepaul\\Documents\\Projects\\MOBILE%20APP\\WAVE\\schema\\tns.xsd",
             "pattern": "**/**/*.xml"
         }
     ],

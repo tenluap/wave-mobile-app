@@ -1,5 +1,4 @@
 <Page loaded="pageLoaded" class="page" actionBarHidden="true">
-
 	<GridLayout rows="auto,*" columns="*">
 		<GridLayout rows="auto" row="0" columns="50,*,auto,auto" horizontalAlignment="left" color="white" height="56" class="actionbar">
 			<label text="arrow_back" fontSize="24" class="mat" textWrap="true" tap="{{goBack}}" col="0" />
@@ -27,7 +26,6 @@
 						<button text="Bible" color="white" backgroundColor="#8C0444" width="50%"  tap="{{toggle}}"/>
 						<button text="Quran" color="white" backgroundColor="#8C0444" width="50%" tap="{{toggle}}"/>
 					</StackLayout>
-
 					<!-- <Label text="{{lorem2}}" textWrap="true" color="white" class="body"/> -->
 					<WebView src="{{tog ? content.acf.bible : content.acf.quran}}" />
 				</StackLayout>

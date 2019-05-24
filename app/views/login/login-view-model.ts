@@ -49,6 +49,7 @@ export class LoginViewModel extends Observable {
       var data = Object.assign(api.login, auth)
 
       request(data).then( async res => {
+        console.log(res.content)
         if(res.content.toJSON().error){
           setTimeout(()=>{
             this.loading = false

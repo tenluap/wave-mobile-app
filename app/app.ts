@@ -16,6 +16,7 @@ application.on(application.launchEvent, function (args) {
  
 if(localStorage.getString('userId')){
     application.start({ moduleName: "views/tabview/tabview-page" });
+    // application.start({ moduleName: "views/comic/comic-page" });
 
 }else{
 
