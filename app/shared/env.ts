@@ -1,9 +1,9 @@
 let host;
 var dev = false
 
-// host="http://api.beliepedia.org:3000/api/";
+host="http://api.beliepedia.org:3000/api/";
 // host="http://10.2.8.71:3000/api/" 
-host="http://192.168.0.103:3000/api/" 
+// host="http://192.168.0.103:3000/api/" 
 // host="http://127.0.0.1:3 000/api/" 
 
 import * as store from 'tns-core-modules/application-settings'
