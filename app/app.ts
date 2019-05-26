@@ -6,14 +6,8 @@ purpose of the file is to pass control to the app’s first module.
 
 import * as application from "tns-core-modules/application";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
-
-import { init } from "nativescript-facebook";
 import { localStorage } from "./shared/env";
- 
-application.on(application.launchEvent, function (args) {
-    init("{923601681072774}");
-});
- 
+
 if(localStorage.getString('userId')){
     application.start({ moduleName: "views/tabview/tabview-page" });
     // application.start({ moduleName: "views/comic/comic-page" });

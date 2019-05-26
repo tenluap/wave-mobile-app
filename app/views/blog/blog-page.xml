@@ -9,7 +9,7 @@
                 <ListView.itemTemplate>
 					<StackLayout  id="{{id}}" >
 						<AbsoluteLayout height="170" width="100%" >
-						<image src="{{jetpack_featured_media_url ||'~/img/land2.jpg'}}" stretch="aspectFit" width="100%" tintColor="rgba(0,0,0,0.7)" />
+						<image src="{{jetpack_featured_media_url ||'~/img/land2.jpg'}}" loadMode="async" stretch="aspectFit" width="100%" tintColor="rgba(0,0,0,0.7)" />
 						<label text="{{title.rendered}}" textWrap="true" width="100%" color="white" fontSize="16" style="font-weight:400" padding="0 20" top="120" />
 					</AbsoluteLayout>
 					</StackLayout>

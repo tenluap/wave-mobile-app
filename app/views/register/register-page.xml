@@ -1,6 +1,6 @@
 <Page loaded="pageLoaded" class="page" actionBarHidden="true">
 
-	<AbsoluteLayout width="100%" >
+	<AbsoluteLayout>
 		<image src="~/img/bg.jpg" stretch="aspectFill" tintColor="rgba(255,255,255,0.3)" width="110%"/>
 		<ScrollView width="100%" height="100%" scrollBarIndicatorVisible="false">
 
@@ -8,7 +8,7 @@
 					<image src="~/img/logo_2.png" margin="20 0 10" width="150" horizontalAlignment="center" />
 
 					<label text="register" class="strong h1" color="black" />
-					<StackLayout backgroundColor="#27598C" padding="20" width="100%" borderRadius="5" color="white" marginBottom="10">
+					<StackLayout backgroundColor="#27598C" padding="20"  borderRadius="5" color="white" marginBottom="10">
 						<label text="Last Name" fontSize="12" />
 						<text-field hint="Last Name" text="{{lastName}}" isEnabled="{{loading ? false : true}}" />
 						<label text="First Name" fontSize="12" />
@@ -23,8 +23,8 @@
 						<text-field hint="Email" keyboardType="email" text="{{email}}" isEnabled="{{loading ? false : true}}"/>
 						<label text="Phone Number" fontSize="12" class="m-t-10" />
 						<text-field hint="Phone Number" keyboardType="number" text="{{phone}}" isEnabled="{{loading ? false : true}}" />
-						<button type="submit" text="SIGNUP" color="white" backgroundColor="#37ABE2" tap="{{signup}}" class="m-t-10"></button>
-						<button type="submit" text="Cancel" color="white" backgroundColor="#D9115A" tap="{{goback}}" class="m-b-0"></button>
+						<button  text="SIGNUP" color="white" backgroundColor="#37ABE2" tap="{{signup}}" class="m-t-10"></button>
+						<button text="Cancel" color="white" backgroundColor="#D9115A" tap="{{goback}}" class="m-b-0"></button>
 					</StackLayout>
 				</StackLayout>
 		</ScrollView>

@@ -1,6 +1,6 @@
 <Page loaded="pageLoaded" class="page" actionBarHidden="true">
 	<ScrollView scroll="">
-		<StackLayout>
+		<StackLayout height="100%">
 			<!-- profile dp info -->
 			<Label text="Profile" class="strong m-l-20 h1 p-y-10" color="#3B5998" />
 			<AbsoluteLayout width="100%">
@@ -18,7 +18,7 @@
 						</StackLayout>
 					</GridLayout>
 				</StackLayout>
-				<label text="edit" class="mat" col="black" backgroundColor="white" tap="{{getImg}}" padding="10" borderRadius="30" left="110" top="80"/>
+				<label text="edit" class="mat" col="black" backgroundColor="white" tap="{{pickimg}}"  padding="10" borderRadius="30" left="110" top="80"/>
 			</AbsoluteLayout>
 			<!-- stats section -->
 			<GridLayout rows="auto" columns="*,*" backgroundColor="#F2A950" padding="10,0" class="info">

@@ -11,7 +11,7 @@
 
 			<StackLayout>
 
-				<image src="{{content.jetpack_featured_media_url}}" stretch="aspectFill" height="170" width="100%" />
+				<image src="{{content.jetpack_featured_media_url}}" stretch="aspectFill" height="170" width="100%"  loadMode="async"/>
 
 				<StackLayout padding="20">
 					<Label text="{{content.title.rendered}}" textTransform="uppercase" class="strong " marginBottom="10" fontSize="28" color="#3B5998" />

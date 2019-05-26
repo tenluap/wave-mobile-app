@@ -8,7 +8,7 @@
 				<!-- <Button text="add ADD" class="mat " tap="{{create}}" horizontalAlignment="right" height="46" width="auto" backgroundColor="#D9115A" color="white" row="0" col="1" /> -->
 			</GridLayout>
 			<!-- section 02 -->
-			<ScrollView orientation="horizontal" scrollBarIndicatorVisible="false">
+			<ScrollView orientation="horizontal" scrollBarIndicatorVisible="false" visibility="collapsed">
 				<StackLayout orientation="horizontal" padding="10" class="opts">
 					<Label text="All" />
 					<Label text="Catergories" />
@@ -33,7 +33,7 @@
 									<label text="Views" fontSize="12" textAlignment="center" />
 								</StackLayout>
 							</GridLayout>
-							<ContentView height="5" backgroundColor="white" marginTop="5"></ContentView>
+							<!-- <ContentView height="5" backgroundColor="white" marginTop="5"></ContentView> -->
 						</StackLayout>
 					</ListView.itemTemplate>
 				</ListView>

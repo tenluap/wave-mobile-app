@@ -1,10 +1,10 @@
-<Page loaded="pageLoaded" class="page" actionBarHidden="true" >
+<Page loaded="pageLoaded" class="page" actionBarHidden="true" xmlns:IC="nativescript-image-cache" >
 
 <GridLayout rows='auto,*'>
 	<GridLayout rows="auto" columns="50 * auto auto" horizontalAlignment="left" color="white" height="56" width="100%" class="actionbar">
 			<label text="arrow_back" fontSize="24" class="mat" textWrap="true" tap="{{goBack}}" col="0" />
-			<Label text="Episode 01" fontSize="24" class="strong" col="1" />
-			<Label text="download" fontSize="24" class="mat" textWrap="true" marginRight="16" col="2" tap="{{shareBtn}}" />
+			<Label text="{{'Episode ' + comic.episode}}" fontSize="24" class="strong" col="1" />
+			<Label text="share" fontSize="24" class="mat" textWrap="true" marginRight="16" col="2" tap="{{shareBtn}}" />
 			<Label text="notifications" fontSize="24" class="mat" textWrap="true" col="3" />
 		</GridLayout>
 
@@ -13,7 +13,7 @@
 			<!-- <FlexboxLayout flexDirection="column" width="100%" padding="20" flexWrap="wrap" class="comic"> -->
 				<ListView items="{{pages}}" >
 					<ListView.itemTemplate>
-				<image src="{{download}}" stretch="aspectFill" />
+				<image src="{{download}}" stretch="aspectFill" loadMode="async" height="250" />
 			
 				</ListView.itemTemplate>
 				</ListView>

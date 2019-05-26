@@ -20,7 +20,6 @@ export class ComicViewModel extends Observable {
             this.comics = data.content.toJSON()
             this.notifyPropertyChange('comics',data.content.toJSON())
         })
-        
     }
 
     goto(ev: ItemEventData) {

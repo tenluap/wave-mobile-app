@@ -1,12 +1,12 @@
-<Page loaded="pageLoaded" class="page" actionBarHidden="true">
+<Page loaded="pageLoaded" class="page"  actionBarHidden="true">
 	<ScrollView>
-		<StackLayout  height="100%">
+		<StackLayout >
 			<AbsoluteLayout width="100%"  >
 				<image src="~/img/bg.jpg" stretch="aspectFill" tintColor="rgba(255,255,255,0.3)" width="110%"/>
 				<GridLayout rows="auto,*,auto" colums="*" width="100%" height="100%" padding="0,40, 10">
 					<image src="~/img/logo_2.png"  height="40" horizontalAlignment="center" margin="20,0" row="0"/>
 
-					<StackLayout verticalAlignment='top' row="1" height="400">
+					<StackLayout verticalAlignment='center' row="1" >
 						<label text="login" class="strong h1" color="black" />
 						<StackLayout backgroundColor="#27598C" padding="20" width="100%" borderRadius="5" color="white">
 							<label text="{{message}}" class="bold" visibility="{{ message !== undefined ? 'visible' : 'collapsed' }}" textAlignment="center" color="red" backgroundColor="white" fontSize="16" />
