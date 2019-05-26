@@ -26,7 +26,7 @@ export class RegisterViewModel extends Observable {
         if ((this.username || this.password || this.email || this.phone) == undefined) {
             alert("Empty Field Sent. Please fill all fields")
 
-        } else if (this.password == this.cpassword) {
+        } else if (this.password === this.cpassword) {
             var verifyUsername = RegExp(/\s/igm).test(this.username)
             var verifyPassword = RegExp(/\s/igm).test(this.password)
 
@@ -70,7 +70,8 @@ export class RegisterViewModel extends Observable {
                             transition: {
                                 duration: 300,
                                 name: "slideRight"
-                            }
+                            },
+                            clearHistory: true
                         })
 
                     }
@@ -95,7 +96,8 @@ export class RegisterViewModel extends Observable {
             transition: {
                 duration: 300,
                 name: "slideRight"
-            }
+            },
+            clearHistory: true
         })
     }
 }
