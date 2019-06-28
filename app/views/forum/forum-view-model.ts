@@ -7,36 +7,43 @@ import { ItemEventData } from 'tns-core-modules/ui/list-view/list-view';
 import moment from 'moment';
 
 export class ForumViewModel extends Observable {
-    topics;
-    loading;
+    topics: [] = []
+    loading: boolean = true
     profile;
 
     constructor() {
         super();
-        this.loading = true
+
+        if (localStorage.hasKey('topics')) {
+            this.topics = JSON.parse(localStorage.getString('topics'))
+            this.notifyPropertyChange('topics', JSON.parse(localStorage.getString('topics')))
+        }
         this.profile = JSON.parse(localStorage.getString('profile'))
-
-        request({
-            url: api.getForum.url,
-            method: api.getForum.method
-        }).then(list => {
-            this.loading = false
-            this.topics = list.content.toJSON()
-            this.notifyPropertyChange("topics", list.content.toJSON())
-            // console.log(list.content.toJSON())
-
-        })
-
+        this.getForum()
 
     }
 
-     dateTo(val){
-        var d =  moment(val).format("DD-MM-Y")
+    dateTo(val) {
+        var d = moment(val).format("DD-MM-Y")
         return d
-        
-      }
 
-    
+    }
+
+    async getForum() {
+        var list = await request({
+            url: api.getForum.url,
+            method: api.getForum.method,
+            headers: {
+                Authorization: localStorage.getString('token')
+            }
+        })
+
+        this.loading = false
+        this.topics = list.content.toJSON()
+        localStorage.setString("topics", JSON.stringify(list.content.toJSON()))
+        this.notifyPropertyChange("topics", list.content.toJSON())
+
+    }
 
     goto(ev: ItemEventData) {
         var selected = <Page>ev.object

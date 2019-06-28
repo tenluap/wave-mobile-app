@@ -11,7 +11,7 @@ import { request } from 'tns-core-modules/http/http';
 import "nativescript-appversion"
 import { getVersionName } from 'nativescript-appversion';
 import { version } from 'moment';
-import {Label} from 'tns-core-modules/ui/label'
+import { Label } from 'tns-core-modules/ui/label'
 
 export class TabviewViewModel extends Observable {
     private static previousMenu: StackLayout;
@@ -28,7 +28,8 @@ export class TabviewViewModel extends Observable {
         this.screenWidth = - screen.mainScreen.widthDIPs
 
         this.profile = JSON.parse(localStorage.getString('profile'))
-        // console.log(localStorage.getString('profile'))
+        console.log(localStorage.getAllKeys())
+        console.log(localStorage.getString('profile'))
 
         getVersionName().then(d => {
             this.version = d
@@ -69,9 +70,19 @@ export class TabviewViewModel extends Observable {
 
     async logout(ev) {
         console.log('loging out')
-        
+
         let selected = <StackLayout>ev.object
         var page = selected.page.frame
+
+        await request({
+            url: api.client.url + '/me/accessTokens',
+            method: "DELETE",
+            headers: {
+                Authorization: localStorage.getString('token')
+            }
+        })
+
+        localStorage.clear()
 
         page.navigate({
             moduleName: "views/login/login-page",
@@ -81,20 +92,15 @@ export class TabviewViewModel extends Observable {
             }
         })
 
-        await request({
-            url: api.logout.url + `?access_token=${localStorage.getString('token')}`,
-            method: api.login.method,
-        })
-        
-        localStorage.clear()
+
     }
 
-    credit(ev:EventData){
+    credit(ev: EventData) {
         var page = <Page>ev.object
         this.onCloseDrawerTap()
         // var credits = page.loadView()
-        page.showModal('views/credits/credits-page',{},()=>{})
-        
+        page.showModal('views/credits/credits-page', {}, () => { })
+
     }
 
 }

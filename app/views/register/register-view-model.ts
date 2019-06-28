@@ -22,7 +22,6 @@ export class RegisterViewModel extends Observable {
     }
 
     signup() {
-
         if ((this.username || this.password || this.email || this.phone) == undefined) {
             alert("Empty Field Sent. Please fill all fields")
 
@@ -55,6 +54,7 @@ export class RegisterViewModel extends Observable {
                 var data = Object.assign(api.register, auth)
 
                 request(data).then(res => {
+                    console.log(res)
                     if (res.content.toJSON().error) {
                         console.log(res)
                         setTimeout(() => {

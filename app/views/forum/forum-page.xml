@@ -18,25 +18,27 @@
 				</StackLayout>
 			</ScrollView>
 			<!-- section 03 -->
-				<!-- card -->
-				<ListView items="{{topics}}" itemTap="{{goto}}"  height="100%">
-					<ListView.itemTemplate>
-						<StackLayout backgroundColor="#3B5998" class="list">
-							<GridLayout rows="auto" columns="auto,*,auto" padding="5 0">
-								<image src="~/img/land.jpg" borderColor="white" borderWidth="2" width="50" height="50" borderRadius="300" stretch="fill" row="0" col="0" colSpan="1" margin="0 10" />
-								<StackLayout col="1">
-									<label text="{{topic}}" fontSize="16" />
-									<label text="{{date}}" fontSize="12" />
-								</StackLayout>
-								<StackLayout col="2" margin="0 10">
-									<label text="{{views}}" fontSize="16" textAlignment="center" />
-									<label text="Views" fontSize="12" textAlignment="center" />
-								</StackLayout>
-							</GridLayout>
-							<!-- <ContentView height="5" backgroundColor="white" marginTop="5"></ContentView> -->
-						</StackLayout>
-					</ListView.itemTemplate>
-				</ListView>
+			<ActivityIndicator busy="true" visibility="{{ loading ? 'visible' : 'collapsed' }}" verticalAlignment="center" horizontalAlignment="center"/>
+
+			<!-- card -->
+			<ListView items="{{topics}}" itemTap="{{goto}}" height="100%">
+				<ListView.itemTemplate>
+					<StackLayout backgroundColor="#3B5998" class="list">
+						<GridLayout rows="auto" columns="auto,*,auto" padding="5 0">
+							<image src="~/img/land.jpg" borderColor="white" borderWidth="2" width="50" height="50" borderRadius="300" stretch="fill" row="0" col="0" colSpan="1" margin="0 10" />
+							<StackLayout col="1">
+								<label text="{{topic}}" fontSize="16" />
+								<label text="{{date}}" fontSize="12" />
+							</StackLayout>
+							<StackLayout col="2" margin="0 10">
+								<label text="{{views}}" fontSize="16" textAlignment="center" />
+								<label text="Views" fontSize="12" textAlignment="center" />
+							</StackLayout>
+						</GridLayout>
+						<!-- <ContentView height="5" backgroundColor="white" marginTop="5"></ContentView> -->
+					</StackLayout>
+				</ListView.itemTemplate>
+			</ListView>
 
 
 

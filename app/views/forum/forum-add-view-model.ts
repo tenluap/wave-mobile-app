@@ -14,18 +14,17 @@ export class ForumAddViewModel extends Observable {
 
 
     submit(ev: EventData) {
-
         var submit = <Page>ev.object
         if ((this.title || this.content) == undefined) {
             alert('Empty field found.\nPlease fill in the fields')
         } else {
             confirm("Are you sure this is what you want to create").then(async val => {
-                console.log(val)
+                // console.log(val)
                 if (val) {
                     // push to the db
                     request({
-                        url: api.forum.url,
-                        method: api.forum.method,
+                        url: `${api.client.url}/me/forums`,
+                        method: "POST",
                         headers: {
                             'Content-Type': 'application/json',
                             "Authorization": localStorage.getString("token")
@@ -34,11 +33,10 @@ export class ForumAddViewModel extends Observable {
                             topic: this.title,
                             content: this.content,
                             date: moment().format('Do MMMM YYYY'),
-                            owner: JSON.parse(localStorage.getString('profile')).id,
                             views: 0
                         })
                     }).then(d => {
-                        console.log(d)
+
                         topmost().goBack()
                     })
 
@@ -47,10 +45,10 @@ export class ForumAddViewModel extends Observable {
         }
     }
 
-     dateTo(val){
+    dateTo(val) {
         return moment(val).format("DD-MM-Y")
-        
-      }
+
+    }
     goBack() {
         topmost().goBack()
     }

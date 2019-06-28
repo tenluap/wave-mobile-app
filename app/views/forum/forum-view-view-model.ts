@@ -8,7 +8,7 @@ import { action, prompt, confirm } from 'tns-core-modules/ui/dialogs'
 import { topmost } from 'tns-core-modules/ui/frame/frame';
 import { request } from 'tns-core-modules/http/http';
 import { api, localStorage, refreshProfile } from '~/shared/env';
-import{Repeater} from 'tns-core-modules/ui/repeater'
+import { Repeater } from 'tns-core-modules/ui/repeater'
 import moment from 'moment';
 import { ProfileViewModel } from '../profile/profile-view-model';
 
@@ -20,14 +20,14 @@ export class ForumViewViewModel extends Observable {
     constructor(post) {
         super();
 
+        // console.log(post)
         this.content = post
-        this.profile = JSON.parse(localStorage.getString('profile'))
+        this.profile = JSON.parse(localStorage.getString('profile')).profile
+        this.notifyPropertyChange('content', post)
         this.addViews()
-       
-
     }
 
-    async addViews(){
+    async addViews() {
         await request({
             url: api.viewCount.url,
             method: api.viewCount.method,
@@ -35,21 +35,21 @@ export class ForumViewViewModel extends Observable {
                 'Content-Type': 'application/json',
                 Authorization: localStorage.getString("token")
             },
-           content:JSON.stringify({ id: this.content.id })
+            content: JSON.stringify({ id: this.content.id })
         })
         // this.notifyPropertyChange("content",)
-        
+
     }
 
-    async follow(ev:EventData){
+    async follow(ev: EventData) {
         var selected = <Page>ev.object
         var profileFollows = <[]>JSON.parse(localStorage.getString('profile')).follows
-       
-        if(profileFollows.some(d=>{
+
+        if (profileFollows.some(d => {
             return true
-        })){
+        })) {
             // delete it
-        }else{
+        } else {
             // add create follow
         }
 
@@ -63,16 +63,18 @@ export class ForumViewViewModel extends Observable {
         var stack = new StackLayout()
         var btn = new Button()
 
+        newField.on("loaded", (a) => {
+            var sel = <TextView>a.object
+            sel.focus()
+        })
         newField.minWidth = screen.mainScreen.widthPixels
         newField.minHeight = screen.mainScreen.heightPixels / 10
         newField.color = new Color("black")
         newField.text = this.reply
         var repeat = <Repeater>field.page.getViewById('repeater')
 
-        // newField.notifyPropertyChange()
-
-
         btn.text = "Reply"
+
         btn.on("tap", (a) => {
             this.reply = newField.text
             // newField.text = this.reply
@@ -85,14 +87,13 @@ export class ForumViewViewModel extends Observable {
                     var data = {
                         username: this.profile.username,
                         content: newField.text,
-                        date: moment().format('Do MMMM YYYY'),
-                        profilesId: this.profile.id,
+                        date: moment().format('DD MMMM YYYY'),
                         forumsId: this.content.id
                     }
 
-                   await request({
-                        url: api.reply.url,
-                        method: api.reply.method,
+                    var reply = await request({
+                        url: `${api.client.url}/me/replies`,
+                        method: "POST",
                         headers: {
                             'Content-Type': 'application/json',
                             Authorization: localStorage.getString("token")
@@ -100,15 +101,17 @@ export class ForumViewViewModel extends Observable {
                         content: JSON.stringify(data)
 
                     })
-refreshProfile()
-                        var arr =this.content.replies.push(data)
-                    
-                        this.reply = ""
-                        // this.content
-                        repeat.refresh()
-                        this.notifyPropertyChange("reply", "")
-                        // this.notifyPropertyChange("content", this.content)
-                   
+                    console.log(reply.content.toJSON())
+
+                    refreshProfile()
+                    var arr = this.content.replies.push(data)
+
+                    this.reply = ""
+                    // this.content
+                    repeat.refresh()
+                    this.notifyPropertyChange("reply", "")
+                    // this.notifyPropertyChange("content", this.content)
+
 
                 }
 

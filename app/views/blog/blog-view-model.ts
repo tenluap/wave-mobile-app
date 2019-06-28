@@ -3,30 +3,38 @@ import { Page } from 'tns-core-modules/ui/page/page';
 import { request } from 'tns-core-modules/http/http';
 import { StackLayout } from 'tns-core-modules/ui/layouts/stack-layout/stack-layout';
 import { ListView, ItemEventData } from "tns-core-modules/ui/list-view"
+import { localStorage } from '~/shared/env';
 export class BlogViewModel extends Observable {
-    blogContent;
-    // loading = true;
-    
+    post: [] = []
+    loading = true;
+
     constructor() {
         super();
+        console.log('is post created = ' + localStorage.hasKey('post'))
+        if (localStorage.hasKey('post')) {
+            this.post = JSON.parse(localStorage.getString('post'))
+            this.notifyPropertyChange('post', JSON.parse(localStorage.getString('post')))
+        }
 
-        console.log(this.get('loading'))
-      
+        this.fetchBlog()
+
     }
 
-    fetchBlog(){
-        request({
+    async fetchBlog() {
+        var data = await request({
             url: "https://beliepedia.org/wp-json/wp/v2/posts",
             method: "get",
-        }).then(data => {
-            // this.blogContent = data.content.toJSON()
-            // this.loading = false
-            // console.log(data.content.toJSON()[0].id)
-            // this.notifyPropertyChange('post', data.content.toJSON())
-            this.set('loading',false)
-            this.set("blogContent",data.content.toJSON() )
-            console.log(this.get('loading'))
         })
+
+        if (this.post.length !== data.content.toJSON().length) {
+            this.post = data.content.toJSON()
+            this.loading = false
+            this.notifyPropertyChange('post', data.content.toJSON())
+        } else {
+            this.loading = false
+            this.notifyPropertyChange('post', data.content.toJSON())
+        }
+
     }
 
     goto(ev: ItemEventData) {
@@ -35,15 +43,11 @@ export class BlogViewModel extends Observable {
 
 
         page.navigate({
-            bindingContext:this.blogContent[ev.index],
+            bindingContext: this.post[ev.index],
             moduleName: "views/blog/blog-view-page",
             transition: {
-                name: "slide",
-                // duration: 300
+                name: "slide"
             }
         })
-
-
-        // console.log(this.post[ev.index])
     }
 }
