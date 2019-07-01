@@ -8,6 +8,6 @@
     "files.exclude": {
         "schema": true
     },
-    "editor.snippetSuggestions": "none",
-    "NE.enable.snippets": false
+    "editor.snippetSuggestions": "top",
+    "NE.enable.snippets": true
 }

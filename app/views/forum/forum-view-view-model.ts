@@ -11,6 +11,7 @@ import { api, localStorage, refreshProfile } from '~/shared/env';
 import { Repeater } from 'tns-core-modules/ui/repeater'
 import moment from 'moment';
 import { ProfileViewModel } from '../profile/profile-view-model';
+import { SwipeGestureEventData } from 'tns-core-modules/ui/gestures/gestures';
 
 export class ForumViewViewModel extends Observable {
     profile
@@ -19,12 +20,13 @@ export class ForumViewViewModel extends Observable {
 
     constructor(post) {
         super();
-
         // console.log(post)
         this.content = post
-        this.profile = JSON.parse(localStorage.getString('profile')).profile
+        this.profile = JSON.parse(localStorage.getString('profile'))
         this.notifyPropertyChange('content', post)
+        this.notifyPropertyChange('profile', localStorage.getString('profile'))
         this.addViews()
+        console.log(this.content)
     }
 
     async addViews() {
@@ -48,9 +50,9 @@ export class ForumViewViewModel extends Observable {
         if (profileFollows.some(d => {
             return true
         })) {
-            // delete it
+            // TODO delete it
         } else {
-            // add create follow
+            // TODO add create follow
         }
 
 
@@ -131,5 +133,14 @@ export class ForumViewViewModel extends Observable {
         var page = <Page>ev.object
 
         topmost().goBack()
+    }
+
+    onSwipe(arg: SwipeGestureEventData) {
+        let direction = arg.direction
+        console.log(direction)
+    }
+
+    hold(ev: EventData) {
+        alert('hoho')
     }
 }

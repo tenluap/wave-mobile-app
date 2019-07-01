@@ -24,9 +24,9 @@
 						<!-- listing starts here -->
 						<repeater items="{{content.replies}}" id="repeater">
 							<Repeater.itemTemplate>
-								<GridLayout columns="auto, *" paddingBottom="10">
+								<GridLayout columns="auto, *" paddingBottom="10" id="{{id}}">
 									<image src="~/img/land.jpg" borderRadius="40" marginRight="10" width="38" height="38" stretch="fill" col="0" verticalAlignment="top"/>
-									<StackLayout col="1">
+									<StackLayout col="1" tap="{{hold}}">
 										<label text="{{username}}" color="Black" fontSize="14" style="font-weight:500"/>
 										<label text="{{'Created on ' + date  }}" fontSize="12" color="#D9115A" style="font-style:italic" />
 										<label text="{{content}}" textWrap="true" color="black" fontSize="14"/>

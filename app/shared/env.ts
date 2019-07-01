@@ -1,8 +1,8 @@
-let host;
+let host
 var dev = false
 
-// host = "https://beliepedia.org:8080/api/";
-host = "http://localhost:3000/api/"
+host = "https://beliepedia.org:8080/api/";
+// host = "http://localhost:3000/api/"
 
 import * as store from 'tns-core-modules/application-settings'
 import { request } from 'tns-core-modules/http/http';
@@ -20,7 +20,7 @@ export var api = {
   editForum: { method: "patch", url: host + "forum" },
   forum: { method: "post", url: host + "forum" },
   viewCount: { method: "post", url: host + "forum/viewCount" },
-  reply: { method: "post", url: host + "reply" },
+  reply: { method: "post", url: host + "replies" },
   profile: { method: "get", url: host + "profile" },
   comics: { method: "get", url: host + "comic" },
 

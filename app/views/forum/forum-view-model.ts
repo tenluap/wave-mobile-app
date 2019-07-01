@@ -53,7 +53,6 @@ export class ForumViewModel extends Observable {
         page.navigate({
             bindingContext: this.topics[ev.index],
             moduleName: "views/forum/forum-view-page",
-            transition: { name: "slideLeft" }
         })
     }
 
@@ -64,7 +63,6 @@ export class ForumViewModel extends Observable {
         // console.log()
         page.navigate({
             moduleName: "views/forum/forum-add-page",
-            transition: { name: "slideLeft" }
         })
     }
 

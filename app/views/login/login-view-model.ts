@@ -19,8 +19,8 @@ export class LoginViewModel extends Observable {
   register() {
     topmost().navigate({
       transition: {
-        name: "slide",
-        duration: 300
+        // name: "slide",
+        // duration: 300
       },
       moduleName: "views/register/register-page"
     });
@@ -72,8 +72,8 @@ export class LoginViewModel extends Observable {
 
           topmost().navigate({
             transition: {
-              name: "flip",
-              duration: 500
+              // name: "flip",
+              // duration: 500
             },
             moduleName: "views/tabview/tabview-page",
             clearHistory: true
