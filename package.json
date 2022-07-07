@@ -16,7 +16,7 @@
     "@types/lodash": "^4.14.132",
     "@types/moment": "^2.13.0",
     "lodash": "^4.17.13",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "nativescript-appversion": "^1.4.1",
     "nativescript-imagepicker": "^6.2.0",
     "nativescript-social-share": "^1.5.1",
